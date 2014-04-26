@@ -13,6 +13,9 @@
 
 #include "cocos2d.h"
 
+using cocos2d::CCTouch;
+using cocos2d::CCEvent;
+
 class Chessboard;
 
 using cocos2d::CCLayer;
@@ -26,6 +29,15 @@ public:
     
     CREATE_FUNC(ChessboardController);
     
+    virtual void onEnter();
+    virtual void onExit();
+    
+    virtual bool ccTouchBegan(CCTouch* touch, CCEvent* event);
+    virtual void ccTouchMoved(CCTouch* touch, CCEvent* event);
+    virtual void ccTouchEnded(CCTouch* touch, CCEvent* event);
+    
 };
+
+
 
 #endif /* defined(__Four__ChessboardController__) */

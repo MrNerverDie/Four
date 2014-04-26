@@ -38,9 +38,11 @@ public:
     
     Model* addTransition(const string& from, const string& event, const string& to);
     
-    bool onMessage(const string& msg);
+    bool checkMessage(const string& msg);
     
-    bool onAsyncMessage(const string& msg);
+    void onMessage(const string& msg);
+    
+    void onAsyncMessage(const string& msg);
     
     void waitAction(cocos2d::CCNode* node, cocos2d::CCFiniteTimeAction* action, const string& msg);
     

@@ -2,6 +2,7 @@
 
 #include "ChessboardProtocol.h"
 #include "Chessboard.h"
+#include "ChessboardChecker.h"
 
 USING_NS_CC;
 
@@ -90,7 +91,7 @@ bool HelloWorld::init()
         { WHITE, ZERO, ZERO, ZERO }
     };
     cb->setPieces(pieces1);
-    CCLOG("%i", cb->alterWin());
+    CCLOG("%i", checkWin(cb->getPieces(), cb->getCurrentMove()));
 
     PIECE pieces2[][WIDTH] = {
         { BLACK, BLACK, BLACK, BLACK },
@@ -99,7 +100,8 @@ bool HelloWorld::init()
         { WHITE, ZERO, ZERO, ZERO }
     };
     cb->setPieces(pieces2);
-    CCLOG("%i", cb->alterMove(ccp(0, 0), ccp(0,1)));
+    Move move1(BLACK, ccp(0, 0), ccp(0,1) );
+    CCLOG("%i", checkMove(cb->getPieces(), move1));
     
     PIECE pieces3[][WIDTH] = {
         { ZERO, WHITE, ZERO, ZERO },
@@ -108,8 +110,10 @@ bool HelloWorld::init()
         { ZERO, BLACK, ZERO, ZERO }
     };
     cb->setPieces(pieces3);
-    cb->alterMove(ccp(1, 3), ccp(2,3));
-    cb->alterEat();
+    cb->alterMove(Move(BLACK, ccp(1, 3), ccp(2, 3)));
+    Move move2(BLACK, ccp(1, 3), ccp(2, 3));
+    CCLOG("%i", cb->checkEat(move2));
+    
 // test case end 
     
     return true;

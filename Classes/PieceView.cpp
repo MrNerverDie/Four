@@ -8,6 +8,7 @@
 
 #include "PieceView.h"
 #include "ChessboardProtocol.h"
+#include "Chessboard.h"
 
 cocos2d::CCPoint toRealLocation(const cocos2d::CCPoint& logic_location){
     return ccp(logic_location.x * PIECE_WIDTH + X_OFFSET, logic_location.y * PIECE_HEIGHT + Y_OFFSET);
@@ -19,9 +20,9 @@ bool PieceView::init(){
     return true;
 }
 
-PieceView* PieceView::create(Chessboard *chessboard, cocos2d::CCSpriteFrame *frame, const CCPoint& logic_location){
+PieceView* PieceView::create(const Move* _currentMove, cocos2d::CCSpriteFrame *frame, const CCPoint& logic_location){
     PieceView* view = PieceView::create();
-    view->setChessboard(chessboard);
+    view->setCurrentMove(_currentMove);
     view->setDisplayFrame(frame);
     view->setPosition(toRealLocation(logic_location));
     return view;

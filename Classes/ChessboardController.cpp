@@ -40,10 +40,49 @@ bool ChessboardController::init(){
                 frame_name = new CCString("white.png");
             else
                 continue;
-            CCSprite* black = PieceView::create(this->chessboard, cache->spriteFrameByName(frame_name->getCString()), ccp(j, i));
+            CCSprite* black = PieceView::create(&(this->chessboard->getCurrentMove()), cache->spriteFrameByName(frame_name->getCString()), ccp(j, i));
             this->addChild(black);
         }
     }
     
+//    // touch
+    this->setTouchEnabled(true);
+
     return true;
+}
+
+
+void ChessboardController::onEnter()
+{
+    using cocos2d::CCDirector;
+    CCDirector* pDirector = CCDirector::sharedDirector();
+    pDirector->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+    CCLayer::onEnter();
+}
+
+void ChessboardController::onExit()
+{
+    using cocos2d::CCDirector;
+    CCDirector* pDirector = CCDirector::sharedDirector();
+    pDirector->getTouchDispatcher()->removeDelegate(this);
+    CCLayer::onExit();
+}
+
+bool ChessboardController::ccTouchBegan(CCTouch* touch, CCEvent* event)
+{
+    return true;
+}
+
+void ChessboardController::ccTouchMoved(CCTouch* touch, CCEvent* event)
+{
+    //    CCTouchDelegate
+}
+
+void logPoint(const cocos2d::CCPoint& p){
+    CCLOG("x:%f y:%f", p.x, p.y);
+}
+
+void ChessboardController::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent){
+    logPoint(pTouch->getStartLocation());
+    logPoint(pTouch->getLocation());
 }

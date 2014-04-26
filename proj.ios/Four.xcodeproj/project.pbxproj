@@ -12,6 +12,7 @@
 		096CD46119081DFE004CC84A /* PieceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD45F19081DFE004CC84A /* PieceView.cpp */; };
 		096CD46419081E18004CC84A /* ChessboardController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD46219081E18004CC84A /* ChessboardController.cpp */; };
 		09D1164A1904FFA700139B57 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09D116481904FFA700139B57 /* Model.cpp */; };
+		09EB73C0190BA6D000A528F1 /* ChessboardChecker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09EB73BE190BA6D000A528F1 /* ChessboardChecker.cpp */; };
 		09EE9AD41903B6B300482CE4 /* Chessboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09EE9AD21903B6B300482CE4 /* Chessboard.cpp */; };
 		09F64A8C1909F80900C186A6 /* AllSprites.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09F64A8A1909F80900C186A6 /* AllSprites.plist */; };
 		09F64A8D1909F80900C186A6 /* AllSprites.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F64A8B1909F80900C186A6 /* AllSprites.png */; };
@@ -291,6 +292,8 @@
 		096CD46319081E18004CC84A /* ChessboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChessboardController.h; path = ../Classes/ChessboardController.h; sourceTree = "<group>"; };
 		09D116481904FFA700139B57 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = ../Classes/Model.cpp; sourceTree = "<group>"; };
 		09D116491904FFA700139B57 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../Classes/Model.h; sourceTree = "<group>"; };
+		09EB73BE190BA6D000A528F1 /* ChessboardChecker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChessboardChecker.cpp; sourceTree = "<group>"; };
+		09EB73BF190BA6D000A528F1 /* ChessboardChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessboardChecker.h; sourceTree = "<group>"; };
 		09EE9ACE1903B5AD00482CE4 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Message.h; path = ../Classes/Message.h; sourceTree = "<group>"; };
 		09EE9AD21903B6B300482CE4 /* Chessboard.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Chessboard.cpp; path = ../Classes/Chessboard.cpp; sourceTree = "<group>"; };
 		09EE9AD31903B6B300482CE4 /* Chessboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Chessboard.h; path = ../Classes/Chessboard.h; sourceTree = "<group>"; };
@@ -855,6 +858,8 @@
 				09EE9AD31903B6B300482CE4 /* Chessboard.h */,
 				09D116481904FFA700139B57 /* Model.cpp */,
 				09D116491904FFA700139B57 /* Model.h */,
+				09EB73BE190BA6D000A528F1 /* ChessboardChecker.cpp */,
+				09EB73BF190BA6D000A528F1 /* ChessboardChecker.h */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2114,6 +2119,7 @@
 				15A3D9141682F7D5002FB0C5 /* b2Island.cpp in Sources */,
 				15A3D9151682F7D5002FB0C5 /* b2World.cpp in Sources */,
 				15A3D9161682F7D5002FB0C5 /* b2WorldCallbacks.cpp in Sources */,
+				09EB73C0190BA6D000A528F1 /* ChessboardChecker.cpp in Sources */,
 				09D1164A1904FFA700139B57 /* Model.cpp in Sources */,
 				15A3D9171682F7D5002FB0C5 /* b2ChainAndCircleContact.cpp in Sources */,
 				15A3D9181682F7D5002FB0C5 /* b2ChainAndPolygonContact.cpp in Sources */,

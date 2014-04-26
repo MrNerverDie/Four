@@ -10,20 +10,20 @@
 #define __Four__PieceView__
 
 #include "cocos2d.h"
+#include "ChessboardProtocol.h"
 
-using cocos2d::CCSprite;
-using cocos2d::CCSpriteFrame;
-using cocos2d::CCPoint;
+using namespace cocos2d;
 
-class Chessboard;
-
-class PieceView : public CCSprite {
-    CC_SYNTHESIZE(Chessboard*, chessboard, Chessboard);
+class PieceView : public CCSprite{
+    CC_SYNTHESIZE(const Move*, currentMove, CurrentMove);
+private:
+    bool containsTouchLocation(CCTouch* touch);
     
 public:
+    PieceView(){}
     virtual bool init();
     CREATE_FUNC(PieceView);
-    static PieceView* create(Chessboard* chessboard, CCSpriteFrame* frame, const CCPoint& logic_location);
+    static PieceView* create(const Move* _currentMove, CCSpriteFrame* frame, const CCPoint& logic_location);
 };
 
 #endif /* defined(__Four__PieceView__) */

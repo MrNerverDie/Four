@@ -8,10 +8,7 @@
 
 #include "Model.h"
 
-bool Model::onAsyncMessage(const string& msg){
-    async = false;
-    return this->onMessage(msg);
-}
+#include <algorithm>
 
 Model* Model::addTransition(const string& from, const string& event, const string& to){
     map<string, string>& form_transitions = transitions[from];
@@ -19,13 +16,20 @@ Model* Model::addTransition(const string& from, const string& event, const strin
     return this;
 }
 
-bool Model::onMessage(const string& msg){
+void Model::onAsyncMessage(const string& msg){
+    async = false;
+    this->onMessage(msg);
+}
+
+bool Model::checkMessage(const string &msg){
+    return transitions[currentState].find(msg) != transitions[currentState].end();
+}
+
+void Model::onMessage(const string& msg){
     if (!async) {
         cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(msg.c_str());
         this->currentState = this->transitions[this->currentState][msg];
-        return true;
     }
-    return false;
 }
 
 void Model::waitAction(cocos2d::CCNode* node, cocos2d::CCFiniteTimeAction* action, const string& msg){
