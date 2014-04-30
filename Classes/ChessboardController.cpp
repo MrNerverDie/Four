@@ -19,6 +19,7 @@ bool ChessboardController::init(){
     
     // 初始化Model
     this->chessboard = Chessboard::create();
+    this->chessboard->retain();
     
     //初始化View
     CCSpriteBatchNode* batch = CCSpriteBatchNode::create("AllSprites.png");
@@ -40,13 +41,17 @@ bool ChessboardController::init(){
                 frame_name = new CCString("white.png");
             else
                 continue;
-            CCSprite* black = PieceView::create(&(this->chessboard->getCurrentMove()), cache->spriteFrameByName(frame_name->getCString()), ccp(j, i));
+            CCSprite* black = PieceView::create(&(this->chessboard->getCurrentMove()), this->chessboard, cache->spriteFrameByName(frame_name->getCString()), ccp(j, i));
             this->addChild(black);
         }
     }
     
 //    // touch
     this->setTouchEnabled(true);
+    
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryEat), END_MOVE_MSG, nullptr);
+    
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryWin), END_EAT_MSG, nullptr);
 
     return true;
 }
@@ -83,6 +88,33 @@ void logPoint(const cocos2d::CCPoint& p){
 }
 
 void ChessboardController::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent){
-    logPoint(pTouch->getStartLocation());
-    logPoint(pTouch->getLocation());
+    tryMove(RealToLogic(pTouch->getStartLocation()), RealToLogic(pTouch->getLocation()));
+}
+
+void ChessboardController::tryMove(const CCPoint& src, const CCPoint& dest){
+    Move move(chessboard->getCurrentMove().currentRound,src, dest);
+    if(chessboard->checkMessage(BEGIN_MOVE_MSG) && chessboard->checkMove(move)){
+        chessboard->alterMove(move);
+    }
+}
+
+void ChessboardController::tryEat(){
+    Move move(chessboard->getCurrentMove());
+    if(chessboard->checkMessage(BEGIN_EAT_MSG)){
+        if (chessboard->checkEat(move)){
+            chessboard->alterEat(move);
+        }else{
+            chessboard->onMessage(NEXT_ROUND_MSG);
+        }
+    }
+}
+
+void ChessboardController::tryWin(){
+    if (chessboard->checkMessage(WIN_MSG)) {
+        if (chessboard->checkWin(chessboard->getCurrentMove())){
+            chessboard->alterWin();
+        }else{
+            chessboard->onMessage(NEXT_ROUND_MSG);
+        }
+    }
 }

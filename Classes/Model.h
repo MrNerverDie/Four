@@ -20,6 +20,7 @@ using std::string;
 using cocos2d::CCAction;
 using cocos2d::CCNode;
 using cocos2d::CCObject;
+using cocos2d::CCString;
 
 class Model : public CCObject {
     
@@ -42,7 +43,7 @@ public:
     
     void onMessage(const string& msg);
     
-    void onAsyncMessage(const string& msg);
+    void onAsyncMessage(CCNode* node , CCString* msg);
     
     void waitAction(cocos2d::CCNode* node, cocos2d::CCFiniteTimeAction* action, const string& msg);
     

@@ -35,9 +35,15 @@ struct Move {
     std::vector<cocos2d::CCPoint> eatenPoints;
     Move(PIECE _p):currentRound(_p){}
     Move(PIECE _p,const cocos2d::CCPoint& _src, const cocos2d::CCPoint& _dest):currentRound(_p),src(_src),dest(_dest){}
+    Move(const cocos2d::CCPoint& _src, const cocos2d::CCPoint& _dest):src(_src),dest(_dest){}
     Move(const Move& _move):currentRound(_move.currentRound),src(_move.src),dest(_move.dest),eatenPoints(_move.eatenPoints){}
 };
 
 typedef std::vector< std::vector<PIECE> > ChessboardData;
+
+CCPoint LogicToReal(const cocos2d::CCPoint& p);
+
+CCPoint RealToLogic(const cocos2d::CCPoint& p);
+
 
 #endif

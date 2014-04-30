@@ -42,6 +42,11 @@ bool checkWin( const ChessboardData& pieces, const Move& move ){
 }
 
 bool checkMove( const ChessboardData& pieces, const Move& move ){
+    CCLOG("%d", getPiece(pieces, move.dest));
+    CCLOG("%d", getPiece(pieces, move.src));
+    CCLOG("%d", move.currentRound);
+//    PIECE p2 = getPiece(pieces, move.src);
+//    PIECE p1 = getPiece(pieces, move.dest);
     if ( getPiece(pieces, move.src) == move.currentRound && getPiece(pieces, move.dest) == ZERO)
         return true;
     return false;

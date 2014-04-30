@@ -16,9 +16,10 @@ Model* Model::addTransition(const string& from, const string& event, const strin
     return this;
 }
 
-void Model::onAsyncMessage(const string& msg){
+void Model::onAsyncMessage(CCNode* node, CCString* msg){
     async = false;
-    this->onMessage(msg);
+    this->onMessage(msg->getCString());
+    msg->release();
 }
 
 bool Model::checkMessage(const string &msg){
@@ -26,16 +27,20 @@ bool Model::checkMessage(const string &msg){
 }
 
 void Model::onMessage(const string& msg){
+    CCLOG("%s", msg.c_str());
     if (!async) {
-        cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(msg.c_str());
         this->currentState = this->transitions[this->currentState][msg];
+        CCLOG("transfer to State : %s", this->currentState.c_str());
+        cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(msg.c_str());
     }
 }
 
 void Model::waitAction(cocos2d::CCNode* node, cocos2d::CCFiniteTimeAction* action, const string& msg){
     using namespace cocos2d;
     async = true;
-    CCFiniteTimeAction* action2 = CCCallFuncND::create(this, callfuncND_selector(Model::onAsyncMessage), (void *) &msg);
+    CCString* cc_msg = CCString::create(msg);
+    cc_msg->retain();
+    CCFiniteTimeAction* action2 = CCCallFuncND::create(this, callfuncND_selector(Model::onAsyncMessage), (void *) cc_msg);
     CCSequence* sequence = CCSequence::createWithTwoActions(action, action2);
     node->runAction(sequence);
 }

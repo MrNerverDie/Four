@@ -36,6 +36,11 @@ public:
     virtual void ccTouchMoved(CCTouch* touch, CCEvent* event);
     virtual void ccTouchEnded(CCTouch* touch, CCEvent* event);
     
+    // try方法, 向Model请求进行操作
+    void tryMove(const CCPoint& src, const CCPoint& dest);
+    void tryEat();
+    void tryWin();
+    
 };
 
 

@@ -35,7 +35,7 @@ bool Chessboard::init(){
     using namespace cocos2d;
     
     // Add Listeners
-    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(Chessboard::onNextRound), NEXT_ROUND_MSG, NULL);
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(Chessboard::onNextRound), NEXT_ROUND_MSG, nullptr);
     
     return true;
 }
@@ -56,6 +56,8 @@ bool Chessboard::checkEat(Move& move){
 // 检测能否吃掉一个棋子
 void Chessboard::alterEat(const Move& move){
     
+    
+    currentMove.eatenPoints = move.eatenPoints;
     std::vector<cocos2d::CCPoint>& eatenPoints = currentMove.eatenPoints;
     
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0903A71F190BFEAB00834456 /* ChessboardProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0903A71E190BFEAB00834456 /* ChessboardProtocol.cpp */; };
 		0921CCCB1909ED92009C8DEC /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0921CCC91909ED92009C8DEC /* GameScene.cpp */; };
 		096CD458190796B6004CC84A /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD457190796B6004CC84A /* Message.cpp */; };
 		096CD46119081DFE004CC84A /* PieceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD45F19081DFE004CC84A /* PieceView.cpp */; };
@@ -283,6 +284,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0903A71E190BFEAB00834456 /* ChessboardProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChessboardProtocol.cpp; path = ../Classes/ChessboardProtocol.cpp; sourceTree = "<group>"; };
 		0921CCC91909ED92009C8DEC /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = ../Classes/GameScene.cpp; sourceTree = "<group>"; };
 		0921CCCA1909ED92009C8DEC /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
 		096CD457190796B6004CC84A /* Message.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Message.cpp; path = ../Classes/Message.cpp; sourceTree = "<group>"; };
@@ -886,6 +888,7 @@
 				09EE9ACE1903B5AD00482CE4 /* Message.h */,
 				09EE9AE61903DDF200482CE4 /* ChessboardProtocol.h */,
 				096CD457190796B6004CC84A /* Message.cpp */,
+				0903A71E190BFEAB00834456 /* ChessboardProtocol.cpp */,
 			);
 			name = Protocols;
 			sourceTree = "<group>";
@@ -2127,6 +2130,7 @@
 				375BD5111868454E0024609E /* CCActionManager.cpp in Sources */,
 				15A3D9191682F7D5002FB0C5 /* b2CircleContact.cpp in Sources */,
 				15A3D91A1682F7D5002FB0C5 /* b2Contact.cpp in Sources */,
+				0903A71F190BFEAB00834456 /* ChessboardProtocol.cpp in Sources */,
 				15A3D91B1682F7D5002FB0C5 /* b2ContactSolver.cpp in Sources */,
 				298B29BA18D0668400C1920F /* ButtonReader.cpp in Sources */,
 				15A3D91C1682F7D5002FB0C5 /* b2EdgeAndCircleContact.cpp in Sources */,
