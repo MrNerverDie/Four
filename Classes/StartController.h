@@ -9,11 +9,13 @@
 #ifndef __Four__StartController__
 #define __Four__StartController__
 
+#include "BaseController.h"
+
 #include "cocos2d.h"
 
 using namespace cocos2d;
 
-class StartController : public CCLayer {
+class StartController : public BaseController {
     
 public:
     bool init();

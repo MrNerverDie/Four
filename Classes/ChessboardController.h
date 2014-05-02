@@ -10,6 +10,7 @@
 #define __Four__ChessboardController__
 
 #include "ChessboardProtocol.h"
+#include "BaseController.h"
 
 #include "cocos2d.h"
 
@@ -20,7 +21,7 @@ class Chessboard;
 
 using cocos2d::CCLayer;
 
-class ChessboardController : public CCLayer  {
+class ChessboardController : public BaseController  {
 private:
     Chessboard* chessboard;
     

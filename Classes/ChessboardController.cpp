@@ -13,7 +13,7 @@
 bool ChessboardController::init(){
     using namespace cocos2d;
     
-    if (! CCLayer::init()) {
+    if (! BaseController::init()) {
         return false;
     }
     
@@ -22,15 +22,7 @@ bool ChessboardController::init(){
     this->chessboard->retain();
     
     //初始化View
-    CCSpriteBatchNode* batch = CCSpriteBatchNode::create("AllSprites.png");
-    this->addChild(batch);
     CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
-    cache->addSpriteFramesWithFile("AllSprites.plist");
-    
-    CCSprite* background = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("background.png"));
-    background->setAnchorPoint(ccp(0, 0));
-    background->setPosition(ccp(0, 0));
-    this->addChild(background);
     
     for (int i = 0; i < HEIGHT; ++i) {
         for (int j = 0; j < WIDTH; ++j) {

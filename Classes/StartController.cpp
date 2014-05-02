@@ -12,18 +12,12 @@
 #include "GameScene.h"
 
 bool StartController::init(){
-    CCLayer::init();
+    if (! BaseController::init()) {
+        return false;
+    }
     
     // load res
-    CCSpriteBatchNode* batch = CCSpriteBatchNode::create("AllSprites.png");
-    this->addChild(batch);
     CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
-    cache->addSpriteFramesWithFile("AllSprites.plist");
-    
-    CCSprite* background = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("background.png"));
-    background->setAnchorPoint(ccp(0, 0));
-    background->setPosition(ccp(0, 0));
-    this->addChild(background);
     
     CCSprite* h2h = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("black.png"));
     ImageButton* h2hButton = ImageButton::create(h2h, this, menu_selector(StartController::onH2H));
