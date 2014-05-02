@@ -12,6 +12,9 @@
 		096CD458190796B6004CC84A /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD457190796B6004CC84A /* Message.cpp */; };
 		096CD46119081DFE004CC84A /* PieceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD45F19081DFE004CC84A /* PieceView.cpp */; };
 		096CD46419081E18004CC84A /* ChessboardController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD46219081E18004CC84A /* ChessboardController.cpp */; };
+		09CA2FB3191377010037BF91 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09CA2FB1191377010037BF91 /* StartScene.cpp */; };
+		09CA2FB6191377890037BF91 /* StartController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09CA2FB4191377890037BF91 /* StartController.cpp */; };
+		09CA2FB9191378650037BF91 /* ImageButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09CA2FB7191378650037BF91 /* ImageButton.cpp */; };
 		09D1164A1904FFA700139B57 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09D116481904FFA700139B57 /* Model.cpp */; };
 		09EB73C0190BA6D000A528F1 /* ChessboardChecker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09EB73BE190BA6D000A528F1 /* ChessboardChecker.cpp */; };
 		09EE9AD41903B6B300482CE4 /* Chessboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09EE9AD21903B6B300482CE4 /* Chessboard.cpp */; };
@@ -292,6 +295,12 @@
 		096CD46019081DFE004CC84A /* PieceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieceView.h; path = ../Classes/PieceView.h; sourceTree = "<group>"; };
 		096CD46219081E18004CC84A /* ChessboardController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChessboardController.cpp; path = ../Classes/ChessboardController.cpp; sourceTree = "<group>"; };
 		096CD46319081E18004CC84A /* ChessboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChessboardController.h; path = ../Classes/ChessboardController.h; sourceTree = "<group>"; };
+		09CA2FB1191377010037BF91 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
+		09CA2FB2191377010037BF91 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
+		09CA2FB4191377890037BF91 /* StartController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartController.cpp; path = ../Classes/StartController.cpp; sourceTree = "<group>"; };
+		09CA2FB5191377890037BF91 /* StartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartController.h; path = ../Classes/StartController.h; sourceTree = "<group>"; };
+		09CA2FB7191378650037BF91 /* ImageButton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ImageButton.cpp; path = ../Classes/ImageButton.cpp; sourceTree = "<group>"; };
+		09CA2FB8191378650037BF91 /* ImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImageButton.h; path = ../Classes/ImageButton.h; sourceTree = "<group>"; };
 		09D116481904FFA700139B57 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = ../Classes/Model.cpp; sourceTree = "<group>"; };
 		09D116491904FFA700139B57 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../Classes/Model.h; sourceTree = "<group>"; };
 		09EB73BE190BA6D000A528F1 /* ChessboardChecker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChessboardChecker.cpp; sourceTree = "<group>"; };
@@ -849,6 +858,8 @@
 			children = (
 				096CD46219081E18004CC84A /* ChessboardController.cpp */,
 				096CD46319081E18004CC84A /* ChessboardController.h */,
+				09CA2FB4191377890037BF91 /* StartController.cpp */,
+				09CA2FB5191377890037BF91 /* StartController.h */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -871,6 +882,8 @@
 			children = (
 				096CD45F19081DFE004CC84A /* PieceView.cpp */,
 				096CD46019081DFE004CC84A /* PieceView.h */,
+				09CA2FB7191378650037BF91 /* ImageButton.cpp */,
+				09CA2FB8191378650037BF91 /* ImageButton.h */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1390,6 +1403,8 @@
 				1AFAF8B616D35DE700DB1158 /* HelloWorldScene.h */,
 				0921CCC91909ED92009C8DEC /* GameScene.cpp */,
 				0921CCCA1909ED92009C8DEC /* GameScene.h */,
+				09CA2FB1191377010037BF91 /* StartScene.cpp */,
+				09CA2FB2191377010037BF91 /* StartScene.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -2138,6 +2153,7 @@
 				15A3D91E1682F7D5002FB0C5 /* b2PolygonAndCircleContact.cpp in Sources */,
 				096CD46419081E18004CC84A /* ChessboardController.cpp in Sources */,
 				15A3D91F1682F7D5002FB0C5 /* b2PolygonContact.cpp in Sources */,
+				09CA2FB3191377010037BF91 /* StartScene.cpp in Sources */,
 				15A3D9201682F7D5002FB0C5 /* b2DistanceJoint.cpp in Sources */,
 				298B29BD18D0668400C1920F /* LabelAtlasReader.cpp in Sources */,
 				15A3D9211682F7D5002FB0C5 /* b2FrictionJoint.cpp in Sources */,
@@ -2183,6 +2199,7 @@
 				15A3D9B11682F7F9002FB0C5 /* cpSweep1D.c in Sources */,
 				15A3D9B21682F7F9002FB0C5 /* cpVect.c in Sources */,
 				15A3DA311682F826002FB0C5 /* CCBAnimationManager.cpp in Sources */,
+				09CA2FB9191378650037BF91 /* ImageButton.cpp in Sources */,
 				15A3DA321682F826002FB0C5 /* CCBFileLoader.cpp in Sources */,
 				15A3DA331682F826002FB0C5 /* CCBKeyframe.cpp in Sources */,
 				15A3DA341682F826002FB0C5 /* CCBReader.cpp in Sources */,
@@ -2281,6 +2298,7 @@
 				379BB99A17F03F3700829B88 /* CCArmatureAnimation.cpp in Sources */,
 				379BB99B17F03F3700829B88 /* CCProcessBase.cpp in Sources */,
 				379BB99C17F03F3700829B88 /* CCTween.cpp in Sources */,
+				09CA2FB6191377890037BF91 /* StartController.cpp in Sources */,
 				379BB99D17F03F3700829B88 /* CCArmature.cpp in Sources */,
 				379BB99E17F03F3700829B88 /* CCBone.cpp in Sources */,
 				379BB99F17F03F3700829B88 /* CCDatas.cpp in Sources */,

@@ -92,7 +92,8 @@ void ChessboardController::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent){
 }
 
 void ChessboardController::tryMove(const CCPoint& src, const CCPoint& dest){
-    Move move(chessboard->getCurrentMove().currentRound,src, dest);
+    CCPoint newDest = (dest - src) / (dest - src).getLength();
+    Move move(chessboard->getCurrentMove().currentRound,src, newDest);
     if(chessboard->checkMessage(BEGIN_MOVE_MSG) && chessboard->checkMove(move)){
         chessboard->alterMove(move);
     }
