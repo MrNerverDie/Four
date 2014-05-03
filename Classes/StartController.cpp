@@ -18,8 +18,13 @@ bool StartController::init(){
     
     
     // load res
+    
     CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
     
+    CCSprite* four_logo = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("four_logo.png"));
+    four_logo->setPosition(ccp(320, 960));
+    this->addChild(four_logo);
+
     CCSprite* h2h = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("h2h.png"));
     ImageButton* h2hButton = ImageButton::create(h2h, this, menu_selector(StartController::onH2H));
     h2hButton->setPosition(LogicToReal(ccp(1, 2)));

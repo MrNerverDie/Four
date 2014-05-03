@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0903A71F190BFEAB00834456 /* ChessboardProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0903A71E190BFEAB00834456 /* ChessboardProtocol.cpp */; };
 		0921CCCB1909ED92009C8DEC /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0921CCC91909ED92009C8DEC /* GameScene.cpp */; };
+		093B9ECA1915449B00EB77E1 /* LogoView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 093B9EC81915449B00EB77E1 /* LogoView.cpp */; };
 		096CD458190796B6004CC84A /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD457190796B6004CC84A /* Message.cpp */; };
 		096CD46119081DFE004CC84A /* PieceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD45F19081DFE004CC84A /* PieceView.cpp */; };
 		096CD46419081E18004CC84A /* ChessboardController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD46219081E18004CC84A /* ChessboardController.cpp */; };
@@ -292,6 +293,8 @@
 		0903A71E190BFEAB00834456 /* ChessboardProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChessboardProtocol.cpp; path = ../Classes/ChessboardProtocol.cpp; sourceTree = "<group>"; };
 		0921CCC91909ED92009C8DEC /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = ../Classes/GameScene.cpp; sourceTree = "<group>"; };
 		0921CCCA1909ED92009C8DEC /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
+		093B9EC81915449B00EB77E1 /* LogoView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LogoView.cpp; path = ../Classes/LogoView.cpp; sourceTree = "<group>"; };
+		093B9EC91915449B00EB77E1 /* LogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogoView.h; path = ../Classes/LogoView.h; sourceTree = "<group>"; };
 		096CD457190796B6004CC84A /* Message.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Message.cpp; path = ../Classes/Message.cpp; sourceTree = "<group>"; };
 		096CD45F19081DFE004CC84A /* PieceView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = PieceView.cpp; path = ../Classes/PieceView.cpp; sourceTree = "<group>"; };
 		096CD46019081DFE004CC84A /* PieceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PieceView.h; path = ../Classes/PieceView.h; sourceTree = "<group>"; };
@@ -894,6 +897,8 @@
 				096CD46019081DFE004CC84A /* PieceView.h */,
 				09CA2FB7191378650037BF91 /* ImageButton.cpp */,
 				09CA2FB8191378650037BF91 /* ImageButton.h */,
+				093B9EC81915449B00EB77E1 /* LogoView.cpp */,
+				093B9EC91915449B00EB77E1 /* LogoView.h */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2268,6 +2273,7 @@
 				375BD5131868454E0024609E /* CCActionObject.cpp in Sources */,
 				096CD46119081DFE004CC84A /* PieceView.cpp in Sources */,
 				15A3DA5F1682F826002FB0C5 /* CCPhysicsSprite.cpp in Sources */,
+				093B9ECA1915449B00EB77E1 /* LogoView.cpp in Sources */,
 				15A3DAEB1682F8A6002FB0C5 /* CDAudioManager.m in Sources */,
 				15A3DAEC1682F8A6002FB0C5 /* CDOpenALSupport.m in Sources */,
 				15A3DAED1682F8A6002FB0C5 /* CocosDenshion.m in Sources */,

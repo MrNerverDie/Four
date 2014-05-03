@@ -8,6 +8,7 @@
 
 #include "ChessboardController.h"
 #include "PieceView.h"
+#include "LogoView.h"
 #include "Chessboard.h"
 
 bool ChessboardController::init(){
@@ -37,6 +38,12 @@ bool ChessboardController::init(){
             this->addChild(black);
         }
     }
+    
+    CCSprite* black_logo = LogoView::create(&(this->chessboard->getCurrentMove()), cache->spriteFrameByName("black_logo.png"), BLACK);
+    CCSprite* white_logo = LogoView::create(&(this->chessboard->getCurrentMove()), cache->spriteFrameByName("white_logo.png"), WHITE);
+    this->addChild(black_logo);
+    this->addChild(white_logo);
+    
     
 //    // touch
     this->setTouchEnabled(true);
