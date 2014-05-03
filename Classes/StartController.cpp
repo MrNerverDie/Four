@@ -16,18 +16,27 @@ bool StartController::init(){
         return false;
     }
     
+    
     // load res
     CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
     
-    CCSprite* h2h = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("black.png"));
+    CCSprite* h2h = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("h2h.png"));
     ImageButton* h2hButton = ImageButton::create(h2h, this, menu_selector(StartController::onH2H));
     h2hButton->setPosition(LogicToReal(ccp(1, 2)));
     
-    CCSprite* h2c = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("white.png"));
+    CCSprite* h2c = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("h2c.png"));
     ImageButton* h2cButton = ImageButton::create(h2c, this, menu_selector(StartController::onH2C));
     h2cButton->setPosition(LogicToReal(ccp(2, 2)));
     
-    CCMenu* menu = CCMenu::create(h2hButton, h2cButton, NULL);
+    CCSprite* help = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("help.png"));
+    ImageButton* helpButton = ImageButton::create(help, this, menu_selector(StartController::onH2C));
+    helpButton->setPosition(LogicToReal(ccp(1, 1)));
+    
+    CCSprite* exit = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("exit.png"));
+    ImageButton* exitButton = ImageButton::create(exit, this, menu_selector(StartController::onH2C));
+    exitButton->setPosition(LogicToReal(ccp(2, 1)));
+    
+    CCMenu* menu = CCMenu::create(h2hButton, h2cButton, helpButton, exitButton, NULL);
     menu->setPosition(ccp(0, 0));
     this->addChild(menu);
     
@@ -36,7 +45,8 @@ bool StartController::init(){
 
 void StartController::onH2H(){
     GameScene* gs = GameScene::create();
-    CCDirector::sharedDirector()->pushScene(gs);
+    CCTransitionSlideInR* slide = CCTransitionSlideInR::create(0.3, gs);
+    CCDirector::sharedDirector()->replaceScene(slide);
 }
 
 void StartController::onH2C(){

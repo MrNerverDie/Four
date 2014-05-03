@@ -8,12 +8,15 @@
 
 #include "GameScene.h"
 #include "ChessboardController.h"
+#include "MenuController.h"
 
 bool GameScene::init(){
     CCScene::init();
     
-    cocos2d::CCLayer* cc = ChessboardController::create();
+    CCLayer* cc = ChessboardController::create();
     this->addChild(cc);
+    CCLayer* mc = MenuController::create();
+    this->addChild(mc);
     
     return true;
 }

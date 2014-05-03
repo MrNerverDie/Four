@@ -11,7 +11,7 @@
 
 #include "cocos2d.h"
 
-using cocos2d::CCScene;
+using namespace cocos2d;
 
 class GameScene : public CCScene {
     
