@@ -35,6 +35,7 @@ private:
 public:
     explicit Chessboard():Model("start"),currentMove(BLACK, ccp(-1, -1), ccp(-1, -1)){}
     
+    virtual ~Chessboard();
     bool init();
     
     CREATE_FUNC(Chessboard);

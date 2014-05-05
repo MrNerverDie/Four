@@ -25,6 +25,10 @@ public:
     void onH2H();
     // 进行人机对战
     void onH2C();
+    // 当点击帮助时
+    void onHelp();
+    // 当点击退出时
+    void onEnd();
 };
 
 

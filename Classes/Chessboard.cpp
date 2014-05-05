@@ -12,6 +12,10 @@
 
 #include <algorithm>
 
+Chessboard::~Chessboard(){
+    cocos2d::CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
+}
+
 bool Chessboard::init(){
     
     // 状态机实现
@@ -78,12 +82,12 @@ bool Chessboard::checkMove(const Move &move){
 // 检测这一步是否能走，并且修改当前Point的值
 void Chessboard::alterMove(const Move& move){
     
-    const cocos2d::CCPoint& src = currentMove.src = move.src;
-    const cocos2d::CCPoint& dest = currentMove.dest =  move.dest;
+    currentMove.src = move.src;
+    currentMove.dest =  move.dest;
     
     // 将currentPoint的值改为目标位置的值
-    this->setPiece(src, ZERO);
-    this->setPiece(dest, currentMove.currentRound);
+    this->setPiece(currentMove.src, ZERO);
+    this->setPiece(currentMove.dest, currentMove.currentRound);
     
     this->onMessage(BEGIN_MOVE_MSG);
 }
@@ -105,10 +109,11 @@ void Chessboard::setPieces(PIECE _pieces[][WIDTH]){
 }
 
 void Chessboard::onNextRound(){
-    moves.push(Move(currentMove));
+    Move move(currentMove);
+    moves.push(move);
     currentMove.currentRound = oppositePiece(currentMove.currentRound);
     currentMove.src = ccp(-1, -1);
-    currentMove.dest = currentMove.dest;
+    currentMove.dest = ccp(-1, -1);
     currentMove.eatenPoints.clear();
 }
 

@@ -11,8 +11,14 @@
 #include "LogoView.h"
 #include "Chessboard.h"
 
+ChessboardController::~ChessboardController(){
+    CC_SAFE_RELEASE(chessboard);
+}
+
 bool ChessboardController::init(){
     using namespace cocos2d;
+    
+    CCLog("%s", "init");
     
     if (! BaseController::init()) {
         return false;
@@ -47,10 +53,6 @@ bool ChessboardController::init(){
     
 //    // touch
     this->setTouchEnabled(true);
-    
-    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryEat), END_MOVE_MSG, nullptr);
-    
-    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryWin), END_EAT_MSG, nullptr);
 
     return true;
 }
@@ -59,6 +61,11 @@ bool ChessboardController::init(){
 void ChessboardController::onEnter()
 {
     using cocos2d::CCDirector;
+    
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryEat), END_MOVE_MSG, NULL);
+    
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryWin), END_EAT_MSG, NULL);
+    
     CCDirector* pDirector = CCDirector::sharedDirector();
     pDirector->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
     CCLayer::onEnter();
@@ -67,6 +74,11 @@ void ChessboardController::onEnter()
 void ChessboardController::onExit()
 {
     using cocos2d::CCDirector;
+    
+    CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
+    
+    CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
+    
     CCDirector* pDirector = CCDirector::sharedDirector();
     pDirector->getTouchDispatcher()->removeDelegate(this);
     CCLayer::onExit();
@@ -101,6 +113,9 @@ void ChessboardController::tryMove(const CCPoint& src, const CCPoint& dest){
 }
 
 void ChessboardController::tryEat(){
+    CCArray* children = this->getChildren();
+    CCLog("children number is %d", children->count());
+    
     Move move(chessboard->getCurrentMove());
     if(chessboard->checkMessage(BEGIN_EAT_MSG)){
         if (chessboard->checkEat(move)){

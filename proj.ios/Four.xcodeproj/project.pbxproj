@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0903A71F190BFEAB00834456 /* ChessboardProtocol.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0903A71E190BFEAB00834456 /* ChessboardProtocol.cpp */; };
 		0921CCCB1909ED92009C8DEC /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0921CCC91909ED92009C8DEC /* GameScene.cpp */; };
+		0923BAEF1917C6D4004A19BA /* AIChessboardController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0923BAED1917C6D4004A19BA /* AIChessboardController.cpp */; };
+		0923BAF21917C7BF004A19BA /* AIGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0923BAF01917C7BF004A19BA /* AIGameScene.cpp */; };
 		093B9ECA1915449B00EB77E1 /* LogoView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 093B9EC81915449B00EB77E1 /* LogoView.cpp */; };
 		096CD458190796B6004CC84A /* Message.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD457190796B6004CC84A /* Message.cpp */; };
 		096CD46119081DFE004CC84A /* PieceView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 096CD45F19081DFE004CC84A /* PieceView.cpp */; };
@@ -18,6 +20,7 @@
 		09CA2FB9191378650037BF91 /* ImageButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09CA2FB7191378650037BF91 /* ImageButton.cpp */; };
 		09CF93E51913EC7B0041C6F7 /* MenuController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09CF93E31913EC7B0041C6F7 /* MenuController.cpp */; };
 		09D1164A1904FFA700139B57 /* Model.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09D116481904FFA700139B57 /* Model.cpp */; };
+		09EAC92D1917CCA200015556 /* AIController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09EAC92B1917CCA200015556 /* AIController.cpp */; };
 		09EB73C0190BA6D000A528F1 /* ChessboardChecker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09EB73BE190BA6D000A528F1 /* ChessboardChecker.cpp */; };
 		09ECA60F1913E0690032707D /* BaseController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09ECA60D1913E0690032707D /* BaseController.cpp */; };
 		09EE9AD41903B6B300482CE4 /* Chessboard.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09EE9AD21903B6B300482CE4 /* Chessboard.cpp */; };
@@ -293,6 +296,10 @@
 		0903A71E190BFEAB00834456 /* ChessboardProtocol.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ChessboardProtocol.cpp; path = ../Classes/ChessboardProtocol.cpp; sourceTree = "<group>"; };
 		0921CCC91909ED92009C8DEC /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GameScene.cpp; path = ../Classes/GameScene.cpp; sourceTree = "<group>"; };
 		0921CCCA1909ED92009C8DEC /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameScene.h; path = ../Classes/GameScene.h; sourceTree = "<group>"; };
+		0923BAED1917C6D4004A19BA /* AIChessboardController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIChessboardController.cpp; path = ../Classes/AIChessboardController.cpp; sourceTree = "<group>"; };
+		0923BAEE1917C6D4004A19BA /* AIChessboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIChessboardController.h; path = ../Classes/AIChessboardController.h; sourceTree = "<group>"; };
+		0923BAF01917C7BF004A19BA /* AIGameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIGameScene.cpp; path = ../Classes/AIGameScene.cpp; sourceTree = "<group>"; };
+		0923BAF11917C7BF004A19BA /* AIGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIGameScene.h; path = ../Classes/AIGameScene.h; sourceTree = "<group>"; };
 		093B9EC81915449B00EB77E1 /* LogoView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = LogoView.cpp; path = ../Classes/LogoView.cpp; sourceTree = "<group>"; };
 		093B9EC91915449B00EB77E1 /* LogoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogoView.h; path = ../Classes/LogoView.h; sourceTree = "<group>"; };
 		096CD457190796B6004CC84A /* Message.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Message.cpp; path = ../Classes/Message.cpp; sourceTree = "<group>"; };
@@ -310,6 +317,8 @@
 		09CF93E41913EC7B0041C6F7 /* MenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuController.h; path = ../Classes/MenuController.h; sourceTree = "<group>"; };
 		09D116481904FFA700139B57 /* Model.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Model.cpp; path = ../Classes/Model.cpp; sourceTree = "<group>"; };
 		09D116491904FFA700139B57 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Model.h; path = ../Classes/Model.h; sourceTree = "<group>"; };
+		09EAC92B1917CCA200015556 /* AIController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AIController.cpp; path = ../Classes/AIController.cpp; sourceTree = "<group>"; };
+		09EAC92C1917CCA200015556 /* AIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AIController.h; path = ../Classes/AIController.h; sourceTree = "<group>"; };
 		09EB73BE190BA6D000A528F1 /* ChessboardChecker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChessboardChecker.cpp; sourceTree = "<group>"; };
 		09EB73BF190BA6D000A528F1 /* ChessboardChecker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessboardChecker.h; sourceTree = "<group>"; };
 		09ECA60D1913E0690032707D /* BaseController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BaseController.cpp; path = ../Classes/BaseController.cpp; sourceTree = "<group>"; };
@@ -862,9 +871,19 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		0923BAEC1917C5CA004A19BA /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				09EAC92B1917CCA200015556 /* AIController.cpp */,
+				09EAC92C1917CCA200015556 /* AIController.h */,
+			);
+			name = AI;
+			sourceTree = "<group>";
+		};
 		0963300919017DBB0061800B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				0923BAEC1917C5CA004A19BA /* AI */,
 				096CD46219081E18004CC84A /* ChessboardController.cpp */,
 				096CD46319081E18004CC84A /* ChessboardController.h */,
 				09CA2FB4191377890037BF91 /* StartController.cpp */,
@@ -873,6 +892,8 @@
 				09ECA60E1913E0690032707D /* BaseController.h */,
 				09CF93E31913EC7B0041C6F7 /* MenuController.cpp */,
 				09CF93E41913EC7B0041C6F7 /* MenuController.h */,
+				0923BAED1917C6D4004A19BA /* AIChessboardController.cpp */,
+				0923BAEE1917C6D4004A19BA /* AIChessboardController.h */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1420,6 +1441,8 @@
 				0921CCCA1909ED92009C8DEC /* GameScene.h */,
 				09CA2FB1191377010037BF91 /* StartScene.cpp */,
 				09CA2FB2191377010037BF91 /* StartScene.h */,
+				0923BAF01917C7BF004A19BA /* AIGameScene.cpp */,
+				0923BAF11917C7BF004A19BA /* AIGameScene.h */,
 			);
 			name = Classes;
 			path = ../classes;
@@ -2150,6 +2173,7 @@
 				15A3D9121682F7D5002FB0C5 /* b2ContactManager.cpp in Sources */,
 				15A3D9131682F7D5002FB0C5 /* b2Fixture.cpp in Sources */,
 				15A3D9141682F7D5002FB0C5 /* b2Island.cpp in Sources */,
+				0923BAEF1917C6D4004A19BA /* AIChessboardController.cpp in Sources */,
 				15A3D9151682F7D5002FB0C5 /* b2World.cpp in Sources */,
 				15A3D9161682F7D5002FB0C5 /* b2WorldCallbacks.cpp in Sources */,
 				09EB73C0190BA6D000A528F1 /* ChessboardChecker.cpp in Sources */,
@@ -2210,6 +2234,7 @@
 				15A3D9AD1682F7F9002FB0C5 /* cpSpaceHash.c in Sources */,
 				15A3D9AE1682F7F9002FB0C5 /* cpSpaceQuery.c in Sources */,
 				15A3D9AF1682F7F9002FB0C5 /* cpSpaceStep.c in Sources */,
+				0923BAF21917C7BF004A19BA /* AIGameScene.cpp in Sources */,
 				15A3D9B01682F7F9002FB0C5 /* cpSpatialIndex.c in Sources */,
 				15A3D9B11682F7F9002FB0C5 /* cpSweep1D.c in Sources */,
 				15A3D9B21682F7F9002FB0C5 /* cpVect.c in Sources */,
@@ -2234,6 +2259,7 @@
 				15A3DA401682F826002FB0C5 /* CCMenuItemImageLoader.cpp in Sources */,
 				375BD5101868454E0024609E /* CCActionFrameEasing.cpp in Sources */,
 				298B29C318D0668400C1920F /* PageViewReader.cpp in Sources */,
+				09EAC92D1917CCA200015556 /* AIController.cpp in Sources */,
 				15A3DA411682F826002FB0C5 /* CCMenuItemLoader.cpp in Sources */,
 				15A3DA421682F826002FB0C5 /* CCNode+CCBRelativePositioning.cpp in Sources */,
 				15A3DA431682F826002FB0C5 /* CCNodeLoader.cpp in Sources */,

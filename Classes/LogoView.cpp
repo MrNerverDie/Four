@@ -39,7 +39,7 @@ void LogoView::onEnter(){
 
 void LogoView::onNextRound(){
     if (this->presentRound == this->currentMove->currentRound ) {
-        this->runAction(CCMoveTo::create(0.4f, ccp(320, 960)));
+        this->runAction(CCEaseElasticOut::create(CCMoveTo::create(1.0f, ccp(320, 960))));
     }else{
         this->runAction(CCSequence::createWithTwoActions(CCMoveTo::create(0.4f, ccp(-192, 960)), CCPlace::create(ccp(832, 960)) ) );
     }
