@@ -48,7 +48,7 @@ bool checkMove( const ChessboardData& pieces, const Move& move ){
     CCLOG("%d", getPiece(pieces, move.src));
     CCLOG("%d", move.currentRound);
     
-    if ( getPiece(pieces, move.src) == move.currentRound && getPiece(pieces, move.dest) == ZERO && (move.dest.x - (floor)(move.dest.x)) == 0 )
+    if ( getPiece(pieces, move.src) == move.currentRound && getPiece(pieces, move.dest) == ZERO && (move.dest.x - (floor)(move.dest.x)) == 0 && inbound(move.src) && inbound(move.dest))
         return true;
     return false;
 }
