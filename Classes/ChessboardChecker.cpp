@@ -84,7 +84,7 @@ bool checkEat( const ChessboardData& pieces, Move& move ){
             }
         }
     }
-        CCLOG("size : %zu", eatenPoints.size());
+        CCLOG("size : %lu", eatenPoints.size());
     
     if (eatenPoints.size() == 0)
         return false;
