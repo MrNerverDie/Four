@@ -18,8 +18,6 @@ ChessboardController::~ChessboardController(){
 bool ChessboardController::init(){
     using namespace cocos2d;
     
-    CCLog("%s", "init");
-    
     if (! BaseController::init()) {
         return false;
     }
@@ -52,7 +50,7 @@ bool ChessboardController::init(){
     this->addChild(white_logo);
     
     
-//    // touch
+    // touch
 
     return true;
 }
@@ -66,6 +64,8 @@ void ChessboardController::onEnter()
     
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryWin), END_EAT_MSG, NULL);
     
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryRegret), CLICK_REGRET_MSG, nullptr);
+    
 //    this->setTouchEnabled(true);
     CCDirector* pDirector = CCDirector::sharedDirector();
     pDirector->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
@@ -75,8 +75,6 @@ void ChessboardController::onEnter()
 void ChessboardController::onExit()
 {
     using cocos2d::CCDirector;
-    
-    CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
     
     CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
     
@@ -132,6 +130,20 @@ void ChessboardController::tryWin(CCObject* o){
             chessboard->alterWin();
         }else{
             chessboard->alterNextRound();
+        }
+    }
+}
+
+void ChessboardController::tryRegret(cocos2d::CCObject *o){
+    if (chessboard->checkMessage(REGRET_MSG)){
+        chessboard->alterRegret();
+        
+        CCString* frame_name = ( chessboard->getCurrentMove().currentRound == WHITE ) ? CCString::create("black.png") : CCString::create("white.png");
+        
+        for (CCPoint p : chessboard->getCurrentMove().eatenPoints) {
+            CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
+            CCSprite* piece = PieceView::create(&(this->chessboard->getCurrentMove()), this->chessboard, cache->spriteFrameByName(frame_name->getCString()), p);
+            this->addChild(piece);
         }
     }
 }

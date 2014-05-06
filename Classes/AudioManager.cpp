@@ -24,11 +24,12 @@ bool AudioManager::init(){
     msg2audio->setObject(CCStringMake("eat.WAV"), BEGIN_EAT_MSG);
     msg2audio->setObject(CCStringMake("next_round.WAV"), NEXT_ROUND_MSG);
     msg2audio->setObject(CCStringMake("click.WAV"), CLICK_MSG);
+//    msg2audio->setObject(CCStringMake("create.WAV"), CREATE_MSG);
     
     CCDictElement* e = nullptr;
     CCDICT_FOREACH(msg2audio, e){
         CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(AudioManager::play), e->getStrKey(), e->getObject());
-        CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadEffect(((CCString *)e->getObject())->getCString());
+//        CocosDenshion::SimpleAudioEngine::sharedEngine()->preloadEffect(((CCString *)e->getObject())->getCString());
     }
     
     return true;
