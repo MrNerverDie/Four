@@ -66,7 +66,7 @@ void ChessboardController::onEnter()
     
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryWin), END_EAT_MSG, NULL);
     
-    this->setTouchEnabled(true);
+//    this->setTouchEnabled(true);
     CCDirector* pDirector = CCDirector::sharedDirector();
     pDirector->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
     CCLayer::onEnter();
@@ -115,8 +115,6 @@ void ChessboardController::tryMove(const CCPoint& src, const CCPoint& dest){
 }
 
 void ChessboardController::tryEat(CCObject* o){
-    CCArray* children = this->getChildren();
-    CCLog("children number is %d", children->count());
     
     Move move(chessboard->getCurrentMove());
     if(chessboard->checkMessage(BEGIN_EAT_MSG)){

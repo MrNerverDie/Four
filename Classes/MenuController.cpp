@@ -9,6 +9,7 @@
 #include "MenuController.h"
 #include "ImageButton.h"
 #include "StartScene.h"
+#include "Message.h"
 
 bool MenuController::init(){
     
@@ -46,6 +47,7 @@ bool MenuController::init(){
 }
 
 void MenuController::onBack(CCObject* o){
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
     StartScene* ss = StartScene::create();
     CCTransitionSlideInL* slide = CCTransitionSlideInL::create(0.3f, ss);
     CCDirector::sharedDirector()->replaceScene(slide);

@@ -11,6 +11,7 @@
 #include "ChessboardProtocol.h"
 #include "GameScene.h"
 #include "AIGameScene.h"
+#include "Message.h"
 
 bool StartController::init(){
     if (! BaseController::init()) {
@@ -50,22 +51,25 @@ bool StartController::init(){
 }
 
 void StartController::onH2H(CCObject* o){
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
     CCScene* gs = GameScene::create();
     CCTransitionSlideInR* slide = CCTransitionSlideInR::create(0.3, gs);
     CCDirector::sharedDirector()->replaceScene(slide);
 }
 
 void StartController::onH2C(CCObject* o){
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
     CCScene* gs = AIGameScene::create();
     CCTransitionSlideInR* slide = CCTransitionSlideInR::create(0.3, gs);
     CCDirector::sharedDirector()->replaceScene(slide);
 }
 
 void StartController::onHelp(CCObject* o){
-
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
 }
 
 void StartController::onEnd(CCObject* o){
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
     CCDirector::sharedDirector()->end();
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         exit(0);

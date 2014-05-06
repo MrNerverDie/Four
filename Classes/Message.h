@@ -20,4 +20,6 @@ extern const char* FAIL_MSG;
 extern const char* WIN_MSG;
 extern const char* NEXT_ROUND_MSG;
 
+static const char* CLICK_MSG = "click";
+
 #endif
