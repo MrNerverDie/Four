@@ -11,6 +11,10 @@
 
 #include "ChessboardProtocol.h"
 
+bool inbound(const CCPoint& p);
+
+PIECE getPiece(const ChessboardData& pieces, const cocos2d::CCPoint& p);
+
 PIECE oppositePiece(PIECE p);
 
 bool checkMove( const ChessboardData& pieces, const Move& move );
