@@ -28,6 +28,7 @@ bool ChessboardController::init(){
     this->chessboard = Chessboard::create();
     this->chessboard->retain();
     
+    
     //初始化View
     CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
     
@@ -99,6 +100,7 @@ void logPoint(const cocos2d::CCPoint& p){
 }
 
 void ChessboardController::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent){
+    logPoint(pTouch->getStartLocation());
     tryMove(RealToLogic(pTouch->getStartLocation()), RealToLogic(pTouch->getLocation()));
 }
 
@@ -112,7 +114,7 @@ void ChessboardController::tryMove(const CCPoint& src, const CCPoint& dest){
     }
 }
 
-void ChessboardController::tryEat(){
+void ChessboardController::tryEat(CCObject* o){
     CCArray* children = this->getChildren();
     CCLog("children number is %d", children->count());
     
@@ -121,17 +123,17 @@ void ChessboardController::tryEat(){
         if (chessboard->checkEat(move)){
             chessboard->alterEat(move);
         }else{
-            chessboard->onMessage(NEXT_ROUND_MSG);
+            chessboard->alterNextRound();
         }
     }
 }
 
-void ChessboardController::tryWin(){
+void ChessboardController::tryWin(CCObject* o){
     if (chessboard->checkMessage(WIN_MSG)) {
         if (chessboard->checkWin(chessboard->getCurrentMove())){
             chessboard->alterWin();
         }else{
-            chessboard->onMessage(NEXT_ROUND_MSG);
+            chessboard->alterNextRound();
         }
     }
 }

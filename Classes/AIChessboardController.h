@@ -14,13 +14,17 @@
 
 #include "cocos2d.h"
 
+using cocos2d::CCNotificationCenter;
+
+class AIController;
+
 class AIChessboardController : public ChessboardController{
     PIECE PLAYER;
     PIECE AI;
     
-    
+    AIController* actor;
 public:
-    virtual bool init();
+    bool init();
     AIChessboardController():PLAYER(BLACK), AI(WHITE){}
     virtual ~AIChessboardController();
     
@@ -28,6 +32,8 @@ public:
     
     virtual void onEnter();
     virtual void onExit();
+    
+    void onNextRound(CCObject* o);
 };
 
 #endif /* defined(__Four__AIChessboardController__) */

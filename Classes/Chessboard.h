@@ -52,13 +52,11 @@ public:
     bool checkMove(const Move& move);
     void alterMove(const Move& move);
     
+    void alterNextRound();
+    
     // for test, not recommend to use
     void setPieces(PIECE _pieces[][WIDTH]);
     PIECE getPiece(const cocos2d::CCPoint& p);
-    
-    // callback
-    
-    void onNextRound();
     
 };
 

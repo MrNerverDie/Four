@@ -33,11 +33,11 @@ void LogoView::onEnter(){
     CCSprite::onEnter();
     this->setPosition(ccp(832, 960));
     if (this->presentRound == this->currentMove->currentRound ){
-        this->onNextRound();
+        this->onNextRound(nullptr);
     }
 }
 
-void LogoView::onNextRound(){
+void LogoView::onNextRound(CCObject* o){
     if (this->presentRound == this->currentMove->currentRound ) {
         this->runAction(CCEaseElasticOut::create(CCMoveTo::create(1.0f, ccp(320, 960))));
     }else{

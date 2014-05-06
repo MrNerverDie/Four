@@ -49,23 +49,23 @@ bool StartController::init(){
     return true;
 }
 
-void StartController::onH2H(){
+void StartController::onH2H(CCObject* o){
     CCScene* gs = GameScene::create();
     CCTransitionSlideInR* slide = CCTransitionSlideInR::create(0.3, gs);
     CCDirector::sharedDirector()->replaceScene(slide);
 }
 
-void StartController::onH2C(){
+void StartController::onH2C(CCObject* o){
     CCScene* gs = AIGameScene::create();
     CCTransitionSlideInR* slide = CCTransitionSlideInR::create(0.3, gs);
     CCDirector::sharedDirector()->replaceScene(slide);
 }
 
-void StartController::onHelp(){
+void StartController::onHelp(CCObject* o){
 
 }
 
-void StartController::onEnd(){
+void StartController::onEnd(CCObject* o){
     CCDirector::sharedDirector()->end();
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
         exit(0);

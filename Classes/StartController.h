@@ -22,13 +22,13 @@ public:
     CREATE_FUNC(StartController);
     
     // 进行人人对战
-    void onH2H();
+    void onH2H(CCObject* o);
     // 进行人机对战
-    void onH2C();
+    void onH2C(CCObject* o);
     // 当点击帮助时
-    void onHelp();
+    void onHelp(CCObject* o);
     // 当点击退出时
-    void onEnd();
+    void onEnd(CCObject* o);
 };
 
 

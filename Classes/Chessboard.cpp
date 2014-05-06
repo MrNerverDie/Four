@@ -13,7 +13,7 @@
 #include <algorithm>
 
 Chessboard::~Chessboard(){
-    cocos2d::CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
+//    cocos2d::CCNotificationCenter::sharedNotificationCenter()->removeAllObservers(this);
 }
 
 bool Chessboard::init(){
@@ -39,7 +39,6 @@ bool Chessboard::init(){
     using namespace cocos2d;
     
     // Add Listeners
-    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(Chessboard::onNextRound), NEXT_ROUND_MSG, nullptr);
     
     return true;
 }
@@ -108,13 +107,15 @@ void Chessboard::setPieces(PIECE _pieces[][WIDTH]){
     return ;
 }
 
-void Chessboard::onNextRound(){
+void Chessboard::alterNextRound(){
     Move move(currentMove);
     moves.push(move);
     currentMove.currentRound = oppositePiece(currentMove.currentRound);
     currentMove.src = ccp(-1, -1);
     currentMove.dest = ccp(-1, -1);
     currentMove.eatenPoints.clear();
+
+    this->onMessage(NEXT_ROUND_MSG);
 }
 
 

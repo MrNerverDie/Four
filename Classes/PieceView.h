@@ -34,8 +34,8 @@ public:
     void onExit();
     
     // listener
-    void onBeginMove();
-    void onBeginEat();
+    void onBeginMove(CCObject* o);
+    void onBeginEat(CCObject* o);
 };
 
 #endif /* defined(__Four__PieceView__) */

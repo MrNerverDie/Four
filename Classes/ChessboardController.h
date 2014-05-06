@@ -22,7 +22,7 @@ class Chessboard;
 using cocos2d::CCLayer;
 
 class ChessboardController : public BaseController  {
-private:
+protected:
     Chessboard* chessboard;
     
 public:
@@ -40,9 +40,8 @@ public:
     
     // try方法, 向Model请求进行操作
     virtual void tryMove(const CCPoint& src, const CCPoint& dest);
-    virtual void tryEat();
-    virtual void tryWin();
-    
+    virtual void tryEat(CCObject* o);
+    virtual void tryWin(CCObject* o);
 };
 
 

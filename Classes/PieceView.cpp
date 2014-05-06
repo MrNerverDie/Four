@@ -58,14 +58,14 @@ void PieceView::onExit(){
 }
 
 
-void PieceView::onBeginMove(){
+void PieceView::onBeginMove(CCObject* o){
     if (!(currentMove->src).equals(RealToLogic(this->getPosition())))
         return;
     CCPoint dest = LogicToReal(currentMove->dest);
-    model->waitAction(this, CCMoveTo::create(0.2f, dest), END_MOVE_MSG);
+    model->waitAction(this, CCEaseExponentialOut::create(CCMoveTo::create(0.5f, dest)), END_MOVE_MSG);
 }
 
-void PieceView::onBeginEat(){
+void PieceView::onBeginEat(CCObject* o){
     const std::vector<CCPoint>& eatenPoints = currentMove->eatenPoints;
     CCPoint logic_position = RealToLogic(this->getPosition());
     if (std::find_if(eatenPoints.begin(), eatenPoints.end(),

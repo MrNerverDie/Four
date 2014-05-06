@@ -19,7 +19,7 @@ public:
     bool init();
     CREATE_FUNC(MenuController);
     
-    void onBack();
+    void onBack(CCObject* o);
 };
 
 

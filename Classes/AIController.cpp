@@ -7,3 +7,12 @@
 //
 
 #include "AIController.h"
+
+bool AIController::init(){
+    return true;
+}
+
+void AIController::getNextMove(const ChessboardData &pieces, Move &nextMove){
+    nextMove.src = ccp(0, 3);
+    nextMove.dest = ccp(0, 2);
+}

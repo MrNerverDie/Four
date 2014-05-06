@@ -28,7 +28,7 @@ public:
     void onEnter();
     
     // listener
-    void onNextRound();
+    void onNextRound(CCObject* o);
 };
 
 #endif /* defined(__Four__LogoView__) */

@@ -45,7 +45,7 @@ bool MenuController::init(){
     return true;
 }
 
-void MenuController::onBack(){
+void MenuController::onBack(CCObject* o){
     StartScene* ss = StartScene::create();
     CCTransitionSlideInL* slide = CCTransitionSlideInL::create(0.3f, ss);
     CCDirector::sharedDirector()->replaceScene(slide);
