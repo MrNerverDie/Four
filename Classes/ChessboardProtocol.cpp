@@ -16,3 +16,10 @@ CCPoint LogicToReal(const cocos2d::CCPoint& p){
 CCPoint RealToLogic(const cocos2d::CCPoint& p){
     return ccp(round((p.x - X_OFFSET) / PIECE_WIDTH ), round((p.y - Y_OFFSET) / PIECE_HEIGHT));
 }
+
+void Move::operator=(const Move &_move){
+    this->currentRound = _move.currentRound;
+    this->src = _move.src;
+    this->dest = _move.dest;
+    this->eatenPoints = _move.eatenPoints;
+}

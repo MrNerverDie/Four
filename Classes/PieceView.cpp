@@ -37,7 +37,7 @@ PieceView* PieceView::create(const Move* _currentMove, Model* _model, cocos2d::C
     view->setDisplayFrame(frame);
     CCPoint dest = LogicToReal(_logic_position);
     view->setPosition(ccp(dest.x, CCDirector::sharedDirector()->getVisibleSize().height));
-    CCActionInterval* drop = CCMoveTo::create(1.0f, dest);
+    CCActionInterval* drop = CCMoveTo::create(0.6f, dest);
 
     drop->retain();
     view->setDropAction(drop);

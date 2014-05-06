@@ -53,7 +53,6 @@ bool ChessboardController::init(){
     
     
 //    // touch
-    this->setTouchEnabled(true);
 
     return true;
 }
@@ -67,6 +66,7 @@ void ChessboardController::onEnter()
     
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryWin), END_EAT_MSG, NULL);
     
+    this->setTouchEnabled(true);
     CCDirector* pDirector = CCDirector::sharedDirector();
     pDirector->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
     CCLayer::onEnter();
