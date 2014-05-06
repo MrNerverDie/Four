@@ -9,6 +9,8 @@
 #include "ChessboardChecker.h"
 
 #include <vector>
+#include <cmath>
+
 using std::vector;
 
 bool inbound(const CCPoint& p, int width, int height){
@@ -45,9 +47,8 @@ bool checkMove( const ChessboardData& pieces, const Move& move ){
     CCLOG("%d", getPiece(pieces, move.dest));
     CCLOG("%d", getPiece(pieces, move.src));
     CCLOG("%d", move.currentRound);
-//    PIECE p2 = getPiece(pieces, move.src);
-//    PIECE p1 = getPiece(pieces, move.dest);
-    if ( getPiece(pieces, move.src) == move.currentRound && getPiece(pieces, move.dest) == ZERO)
+    
+    if ( getPiece(pieces, move.src) == move.currentRound && getPiece(pieces, move.dest) == ZERO && (move.dest.x - (floor)(move.dest.x)) == 0 )
         return true;
     return false;
 }
