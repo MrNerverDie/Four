@@ -19,9 +19,9 @@ struct Solution
 public:
 	Move move = Move(BLACK);
 	int score;
+	ChessboardData pieces;
 
 	~Solution(){
-		CCLOG("fdsadsaf %s", "haha");
 //		delete move;
 	}
 };
@@ -54,6 +54,8 @@ private:
 	int getGoalScore(const ChessboardData& pieces, Move& nextMove);
 	// 总评分
 	int getTotalScore(const ChessboardData& pieces, Move& nextMove);
+	// 被杀扣分
+	void reduceBeKilledScore(Solution& solution);
 };
 
 #endif /* defined(__Four__AIController__) */

@@ -8,6 +8,8 @@
 
 #include "AIController.h"
 #include "ChessboardChecker.h"
+#include <cstdlib>
+#include <ctime>
 
 typedef std::vector<Solution> SolutionList;
 
@@ -21,16 +23,22 @@ void AIController::getNextMove(const ChessboardData &pieces, Move &nextMove){
 
 	SolutionList solutionList;
 	createSolutions(pieces, nextMove, solutionList);
+	for (auto itr = solutionList.begin(); itr != solutionList.end(); ++itr)
+		reduceBeKilledScore(*itr);
 
-	int index = 0, largest = 0;
+	int largest = solutionList[0].score;
 //	Solution *resultSolution;
-	Move resultMove = Move(nextMove.currentRound);
+	Move resultMove = solutionList[0].move;
 	for (auto s : solutionList){
+		std::srand(std::time(0));
 		if (s.score > largest) {
 			largest = s.score;
 //			resultSolution = &s;
 			resultMove = s.move;
-		} 
+		}
+		else if (s.score == largest && std::rand() > (RAND_MAX / 2)) {
+			resultMove = s.move;
+		}
 	}
 	nextMove = resultMove;
 	solutionList.clear();
@@ -39,58 +47,22 @@ void AIController::getNextMove(const ChessboardData &pieces, Move &nextMove){
 //生成解决方案呢
 void AIController::createSolutions(const ChessboardData& pieces, Move& nextMove, SolutionList& solutionList) {
 	PIECE p;
-	float destX, destY;
 
 	for (int i = 0; i < WIDTH; i++) {	// 获取所有棋子
 		for (int j = 0; j < HEIGHT; j++) {
 			p = getPiece(pieces, ccp(i, j));
 			if (p == nextMove.currentRound) {	// 所属同一阵营
-				//往上
-				if (inbound(ccp(i, j + 1))) {
-					Move move = Move(nextMove.currentRound, ccp(i, j), ccp(i, j + 1));
+				std::vector<CCPoint> pointDevision = { ccp(0, 1), ccp(0, -1), ccp(-1, 0), ccp(1, 0) };
+
+				for (auto devision : pointDevision) {
+					// 往四个方向
+					Move move = Move(nextMove.currentRound, ccp(i, j), ccp(i, j) + devision);
 					if (checkMove(pieces, move)) {
+					CCLOG("from %d %d to %f %f", i, j, devision.x, devision.y);
 						Solution solution = Solution();
 						solution.move = move;
-						ChessboardData pieces2;
-						createChessboardMoveOver(pieces, move, pieces2);
-						solution.score = getTotalScore(pieces2, move);
-						solutionList.push_back(solution);
-					}
-				}
-
-				//往下
-				if (inbound(ccp(i, j - 1))) {
-					Move move = Move(nextMove.currentRound, ccp(i, j), ccp(i, j - 1));
-					if (checkMove(pieces, move)) {
-						Solution solution;
-						solution.move = move;
-						ChessboardData pieces2;
-						createChessboardMoveOver(pieces, move, pieces2);
-						solution.score = getTotalScore(pieces2, move);
-						solutionList.push_back(solution);
-					}
-				}
-				//往左
-				if (inbound(ccp(i - 1, j))) {
-					Move move = Move(nextMove.currentRound, ccp(i, j), ccp(i - 1, j));
-					if (checkMove(pieces, move)) {
-						Solution solution;
-						solution.move = move;
-						ChessboardData pieces2;
-						createChessboardMoveOver(pieces, move, pieces2);
-						solution.score = getTotalScore(pieces2, move);
-						solutionList.push_back(solution);
-					}
-				}
-				//往右
-				if (inbound(CCPoint(i + 1, j))) {
-					Move move = Move(nextMove.currentRound, ccp(i, j), ccp(i + 1, j));
-					if (checkMove(pieces, move)) {
-						Solution solution;
-						solution.move = move;
-						ChessboardData pieces2;
-						createChessboardMoveOver(pieces, move, pieces2);
-						solution.score = getTotalScore(pieces2, move);
+						createChessboardMoveOver(pieces, move, solution.pieces);
+						solution.score = getTotalScore(solution.pieces, move);
 						solutionList.push_back(solution);
 					}
 				}
@@ -132,7 +104,29 @@ int AIController::getGoalScore(const ChessboardData& pieces, Move& nextMove) {
 	return ((nextMove.src.x < 1 || nextMove.src.x > 2) && (nextMove.dest.x >= 1 && nextMove.dest.x <= 2) ? 1 : 0)
 		+ ((nextMove.src.y < 1 || nextMove.src.y > 2) && (nextMove.dest.y >= 1 && nextMove.dest.y <= 2) ? 1 : 0);
 }
+
 // 总评分
 int AIController::getTotalScore(const ChessboardData& pieces, Move& nextMove) {
 	return getKillScore(pieces, nextMove) + getGoalScore(pieces, nextMove);
+}
+
+// 被杀扣分
+void AIController::reduceBeKilledScore(Solution& solution) {
+	Move move2 = solution.move;
+	move2.currentRound = oppositePiece(solution.move.currentRound);
+
+	SolutionList solutionList2;
+	createSolutions(solution.pieces, move2, solutionList2);
+
+	int largestPoint = 0;
+	for (auto obj : solutionList2)
+		largestPoint = obj.score > largestPoint ? obj.score : largestPoint;
+
+	solution.score -= largestPoint;
+
+//	int killCount = 0;
+//	for (auto obj : solutionList2) 
+//		killCount = (obj.move.eatenPoints.size() > killCount) ? obj.move.eatenPoints.size() : killCount;
+	
+//	solution.score -= killCount * 2;
 }
