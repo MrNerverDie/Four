@@ -52,7 +52,7 @@ void AIController::createSolutions(const ChessboardData& pieces, Move& nextMove,
 		for (int j = 0; j < HEIGHT; j++) {
 			p = getPiece(pieces, ccp(i, j));
 			if (p == nextMove.currentRound) {	// 所属同一阵营
-				std::vector<CCPoint> pointDevision = { ccp(0, 1), ccp(0, -1), ccp(-1, 0), ccp(1, 0) };
+				CCPoint pointDevision[] = { ccp(0, 1), ccp(0, -1), ccp(-1, 0), ccp(1, 0) };
 
 				for (auto devision : pointDevision) {
 					// 往四个方向
