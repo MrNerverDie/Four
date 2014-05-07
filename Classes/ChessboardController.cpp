@@ -10,6 +10,7 @@
 #include "PieceView.h"
 #include "LogoView.h"
 #include "Chessboard.h"
+#include "RotFlowerParticle.h"
 
 ChessboardController::~ChessboardController(){
     CC_SAFE_RELEASE(chessboard);
@@ -110,6 +111,7 @@ void ChessboardController::tryMove(const CCPoint& src, const CCPoint& dest){
     if(chessboard->checkMessage(BEGIN_MOVE_MSG) && chessboard->checkMove(move)){
         chessboard->alterMove(move);
     }
+    
 }
 
 void ChessboardController::tryEat(CCObject* o){
@@ -128,6 +130,7 @@ void ChessboardController::tryWin(CCObject* o){
     if (chessboard->checkMessage(WIN_MSG)) {
         if (chessboard->checkWin(chessboard->getCurrentMove())){
             chessboard->alterWin();
+            this->addChild(RotFlowerParticle::create());
         }else{
             chessboard->alterNextRound();
         }

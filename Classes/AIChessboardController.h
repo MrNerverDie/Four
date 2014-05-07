@@ -34,6 +34,7 @@ public:
     virtual void onExit();
     
     void onNextRound(CCObject* o);
+    void tryAIRegret(CCObject* o);
 };
 
 #endif /* defined(__Four__AIChessboardController__) */

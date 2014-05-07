@@ -10,6 +10,7 @@
 #include "AIController.h"
 #include "Message.h"
 #include "Chessboard.h"
+#include "PieceView.h"
 
 AIChessboardController::~AIChessboardController(){
     CC_SAFE_RELEASE(actor);
@@ -27,6 +28,9 @@ bool AIChessboardController::init(){
 void AIChessboardController::onEnter(){
     ChessboardController::onEnter();
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(AIChessboardController::onNextRound), NEXT_ROUND_MSG, nullptr);
+    CCNotificationCenter::sharedNotificationCenter()->removeObserver(this, CLICK_REGRET_MSG);
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(AIChessboardController::tryRegret), AI_END_MOVE_MSG, nullptr);
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(AIChessboardController::tryAIRegret), CLICK_REGRET_MSG, nullptr);
 }
 
 void AIChessboardController::onExit(){
@@ -42,5 +46,19 @@ void AIChessboardController::onNextRound(CCObject* o){
         this->tryMove(move.src, move.dest);
     }else {
         CCDirector::sharedDirector()->getTouchDispatcher()->addTargetedDelegate(this, 0, true);
+    }
+}
+
+void AIChessboardController::tryAIRegret(cocos2d::CCObject *o){
+    if (chessboard->checkMessage(REGRET_MSG)){
+        chessboard->alterAIRegret();
+        
+        CCString* frame_name = ( chessboard->getCurrentMove().currentRound == WHITE ) ? CCString::create("black.png") : CCString::create("white.png");
+        
+        for (CCPoint p : chessboard->getCurrentMove().eatenPoints) {
+            CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
+            CCSprite* piece = PieceView::create(&(this->chessboard->getCurrentMove()), this->chessboard, cache->spriteFrameByName(frame_name->getCString()), p);
+            this->addChild(piece);
+        }
     }
 }
