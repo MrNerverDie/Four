@@ -11,6 +11,7 @@
 #include "LogoView.h"
 #include "Chessboard.h"
 #include "RotFlowerParticle.h"
+#include "ChessboardProtocol.h"
 
 ChessboardController::~ChessboardController(){
     CC_SAFE_RELEASE(chessboard);
@@ -27,6 +28,14 @@ bool ChessboardController::init(){
     this->chessboard = Chessboard::create();
     this->chessboard->retain();
     
+    PIECE _pieces[4][4] = {
+        {ZERO, WHITE, ZERO, BLACK},
+        {ZERO, ZERO, WHITE, BLACK},
+        {ZERO, ZERO, ZERO, ZERO},
+        {ZERO, ZERO, ZERO, ZERO}
+    };
+    
+    chessboard->setPieces(_pieces);
     
     //初始化View
     CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
@@ -92,10 +101,6 @@ bool ChessboardController::ccTouchBegan(CCTouch* touch, CCEvent* event)
 void ChessboardController::ccTouchMoved(CCTouch* touch, CCEvent* event)
 {
     //    CCTouchDelegate
-}
-
-void logPoint(const cocos2d::CCPoint& p){
-    CCLOG("x:%f y:%f", p.x, p.y);
 }
 
 void ChessboardController::ccTouchEnded(CCTouch *pTouch, CCEvent *pEvent){

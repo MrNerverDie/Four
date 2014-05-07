@@ -23,3 +23,7 @@ void Move::operator=(const Move &_move){
     this->dest = _move.dest;
     this->eatenPoints = _move.eatenPoints;
 }
+
+void logPoint(const cocos2d::CCPoint& p){
+    CCLOG("x:%f y:%f", p.x, p.y);
+}

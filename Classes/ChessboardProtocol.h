@@ -46,5 +46,7 @@ CCPoint LogicToReal(const cocos2d::CCPoint& p);
 
 CCPoint RealToLogic(const cocos2d::CCPoint& p);
 
+void logPoint(const cocos2d::CCPoint& p);
+
 
 #endif

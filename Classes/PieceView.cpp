@@ -68,8 +68,10 @@ void PieceView::onBeginMove(CCObject* o){
 }
 
 void PieceView::onBeginEat(CCObject* o){
-    const std::vector<CCPoint>& eatenPoints = currentMove->eatenPoints;
+    const std::vector<CCPoint> eatenPoints = currentMove->eatenPoints;
     CCPoint logic_position = RealToLogic(this->getPosition());
+    
+    
     if (std::find_if(eatenPoints.begin(), eatenPoints.end(),
                      [logic_position](const CCPoint& p)->bool{return p.equals(logic_position) ;} ) == eatenPoints.end())
 //    if (!eatenPoints[0].equals(logic_position))

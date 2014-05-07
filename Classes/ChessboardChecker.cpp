@@ -68,9 +68,10 @@ bool checkEat( const ChessboardData& pieces, Move& move ){
                     }
                 }else{
                     third = currentPoint - direction;
-                    if ((getPiece(pieces, second) == oppositePiece(currentRound) && getPiece(pieces, third) == ZERO) ||
-                        (getPiece(pieces, third) == oppositePiece(currentRound) && getPiece(pieces, second) == ZERO) ){
+                    if ((getPiece(pieces, second) == oppositePiece(currentRound) && getPiece(pieces, third) == ZERO)){
                         eatenPoints.push_back(second);
+                    }else if (getPiece(pieces, third) == oppositePiece(currentRound) && getPiece(pieces, second) == ZERO){
+                        eatenPoints.push_back(third);
                     }
                 }
             }else{
@@ -83,8 +84,10 @@ bool checkEat( const ChessboardData& pieces, Move& move ){
         }
     }
         CCLOG("size : %lu", eatenPoints.size());
+
     
     if (eatenPoints.size() == 0)
         return false;
+    logPoint(eatenPoints[0]);
     return true;
 }
