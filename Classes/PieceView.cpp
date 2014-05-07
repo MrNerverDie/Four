@@ -26,6 +26,7 @@ bool PieceView::init(){
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(PieceView::onBeginMove), BEGIN_MOVE_MSG, nullptr);
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(PieceView::onBeginEat), BEGIN_EAT_MSG, nullptr);
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(PieceView::onRegret), REGRET_MSG, nullptr);
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(PieceView::onAIRegret), AI_REGRET_MSG, nullptr);
     
     return true;
 }
@@ -84,5 +85,13 @@ void PieceView::onRegret(CCObject* o){
     CCPoint src = LogicToReal(currentMove->src);
     model->waitAction(this, CCEaseExponentialOut::create(CCMoveTo::create(0.5f, src)), END_MOVE_MSG);
 }
+
+void PieceView::onAIRegret(CCObject* o){
+    if (!(currentMove->dest).equals(RealToLogic(this->getPosition())))
+        return;
+    CCPoint src = LogicToReal(currentMove->src);
+    model->waitAction(this, CCEaseExponentialOut::create(CCMoveTo::create(0.5f, src)), AI_END_MOVE_MSG);
+}
+
 
 

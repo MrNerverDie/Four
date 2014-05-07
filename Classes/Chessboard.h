@@ -54,6 +54,7 @@ public:
     
     void alterNextRound();
     void alterRegret();
+    void alterAIRegret();
     
     // for test, not recommend to use
     void setPieces(PIECE _pieces[][WIDTH]);

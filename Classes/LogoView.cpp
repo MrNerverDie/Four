@@ -17,6 +17,7 @@ bool LogoView::init(){
     CCSprite::init();
     
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(LogoView::onNextRound), NEXT_ROUND_MSG, nullptr);
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(LogoView::onNextRound), REGRET_MSG, nullptr);
     
     return true;
 }
