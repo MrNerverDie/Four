@@ -20,6 +20,8 @@ public:
     CREATE_FUNC(MenuController);
     
     void onBack(CCObject* o);
+    void onRegret(CCObject* o);
+    void onShare(CCObject* o);
 };
 
 

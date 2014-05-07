@@ -1,16 +1,19 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
 #include "GameScene.h"
 #include "StartScene.h"
+#include "SimpleAudioEngine.h"
+#include "AudioManager.h"
 
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
-
+    audio = AudioManager::create();
+    CC_SAFE_RETAIN(audio);
 }
 
 AppDelegate::~AppDelegate() 
 {
+    CC_SAFE_RELEASE(audio);
 }
 
 bool AppDelegate::applicationDidFinishLaunching() {
@@ -46,7 +49,7 @@ void AppDelegate::applicationDidEnterBackground() {
     CCDirector::sharedDirector()->stopAnimation();
 
     // if you use SimpleAudioEngine, it must be pause
-    // SimpleAudioEngine::sharedEngine()->pauseBackgroundMusic();
+    audio->pause();
 }
 
 // this function will be called when the app is active again
@@ -54,5 +57,5 @@ void AppDelegate::applicationWillEnterForeground() {
     CCDirector::sharedDirector()->startAnimation();
 
     // if you use SimpleAudioEngine, it must resume here
-    // SimpleAudioEngine::sharedEngine()->resumeBackgroundMusic();
+    audio->resume();
 }

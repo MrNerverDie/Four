@@ -20,6 +20,8 @@ bool Chessboard::init(){
     
     // 状态机实现
     Model::addTransition("start", BEGIN_MOVE_MSG, "moving")
+        ->addTransition("start", REGRET_MSG, "back_moving")
+        ->addTransition("back_moving", END_MOVE_MSG, "start")
         ->addTransition("moving", END_MOVE_MSG, "judge_eat")
         ->addTransition("judge_eat", NEXT_ROUND_MSG, "start")
         ->addTransition("judge_eat", BEGIN_EAT_MSG, "eating")
@@ -118,5 +120,16 @@ void Chessboard::alterNextRound(){
     this->onMessage(NEXT_ROUND_MSG);
 }
 
+
+void Chessboard::alterRegret(){
+    currentMove = moves.top();
+    moves.pop();
+    for (CCPoint p : currentMove.eatenPoints) {
+        setPiece(p, oppositePiece(currentMove.currentRound));
+    }
+    setPiece(currentMove.dest, ZERO);
+    setPiece(currentMove.src, currentMove.currentRound);
+    this->onMessage(REGRET_MSG);
+}
 
 

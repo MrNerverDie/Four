@@ -9,15 +9,20 @@
 #ifndef Four_Message_h
 #define Four_Message_h
 
-extern const char* TEST_MSG ;
-extern const char* CREATE_MSG ;
+static const char* TEST_MSG = "test";
+static const char* CREATE_MSG = "create";
 
-extern const char* BEGIN_MOVE_MSG ;
-extern const char* END_MOVE_MSG ;
-extern const char* BEGIN_EAT_MSG ;
-extern const char* END_EAT_MSG ;
-extern const char* FAIL_MSG;
-extern const char* WIN_MSG;
-extern const char* NEXT_ROUND_MSG;
+static const char* BEGIN_MOVE_MSG = "begin_move";
+static const char* END_MOVE_MSG = "end_move";
+static const char* BEGIN_EAT_MSG = "begin_eat";
+static const char* END_EAT_MSG = "end_eat";
+static const char* FAIL_MSG= "fail";
+static const char* WIN_MSG= "win";
+static const char* NEXT_ROUND_MSG= "next_round";
+
+static const char* CLICK_REGRET_MSG = "click_regret";
+static const char* REGRET_MSG = "regret";
+
+static const char* CLICK_MSG = "click";
 
 #endif

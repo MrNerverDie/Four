@@ -36,6 +36,7 @@ public:
     // listener
     void onBeginMove(CCObject* o);
     void onBeginEat(CCObject* o);
+    void onRegret(CCObject* o);
 };
 
 #endif /* defined(__Four__PieceView__) */

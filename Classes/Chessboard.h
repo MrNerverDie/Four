@@ -53,6 +53,7 @@ public:
     void alterMove(const Move& move);
     
     void alterNextRound();
+    void alterRegret();
     
     // for test, not recommend to use
     void setPieces(PIECE _pieces[][WIDTH]);

@@ -42,6 +42,7 @@ public:
     virtual void tryMove(const CCPoint& src, const CCPoint& dest);
     virtual void tryEat(CCObject* o);
     virtual void tryWin(CCObject* o);
+    virtual void tryRegret(CCObject* o);
 };
 
 

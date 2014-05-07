@@ -3,6 +3,8 @@
 
 #include "cocos2d.h"
 
+class AudioManager;
+
 /**
 @brief    The cocos2d Application.
 
@@ -10,6 +12,9 @@ The reason for implement as private inheritance is to hide some interface call b
 */
 class  AppDelegate : private cocos2d::CCApplication
 {
+private:
+    AudioManager* audio;
+    
 public:
     AppDelegate();
     virtual ~AppDelegate();

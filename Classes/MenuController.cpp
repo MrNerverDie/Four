@@ -9,6 +9,7 @@
 #include "MenuController.h"
 #include "ImageButton.h"
 #include "StartScene.h"
+#include "Message.h"
 
 bool MenuController::init(){
     
@@ -31,7 +32,7 @@ bool MenuController::init(){
     backButton->setPosition(ccp(128, 48));
     
     CCSprite* regret = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("regret.png"));
-    ImageButton* regretButton = ImageButton::create(regret, NULL, NULL);
+    ImageButton* regretButton = ImageButton::create(regret, this, menu_selector(MenuController::onRegret));
     regretButton->setPosition(ccp(320, 48));
     
     CCSprite* plus = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("plus.png"));
@@ -46,7 +47,19 @@ bool MenuController::init(){
 }
 
 void MenuController::onBack(CCObject* o){
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
     StartScene* ss = StartScene::create();
     CCTransitionSlideInL* slide = CCTransitionSlideInL::create(0.3f, ss);
     CCDirector::sharedDirector()->replaceScene(slide);
 }
+
+void MenuController::onRegret(cocos2d::CCObject *o){
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_REGRET_MSG);
+}
+
+void MenuController::onShare(cocos2d::CCObject *o){
+    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
+
+}
+
