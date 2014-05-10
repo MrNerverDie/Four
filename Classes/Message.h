@@ -26,5 +26,6 @@ static const char* REGRET_MSG = "regret";
 static const char* AI_REGRET_MSG = "ai_regret";
 
 static const char* CLICK_MSG = "click";
+static const char* LOSE_MSG = "lose";
 
 #endif

@@ -11,6 +11,8 @@
 #include "ChessboardProtocol.h"
 #include "GameScene.h"
 #include "AIGameScene.h"
+#include "FixTimeAIGameScene.h"
+#include "FixMoveAIGameScene.h"
 #include "Message.h"
 
 bool StartController::init(){
@@ -35,44 +37,44 @@ bool StartController::init(){
     ImageButton* h2cButton = ImageButton::create(h2c, this, menu_selector(StartController::onH2C));
     h2cButton->setPosition(LogicToReal(ccp(2, 2)));
     
-    CCSprite* help = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("help.png"));
-    ImageButton* helpButton = ImageButton::create(help, this, menu_selector(StartController::onHelp));
-    helpButton->setPosition(LogicToReal(ccp(1, 1)));
+    CCSprite* fixTime = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("help.png"));
+    ImageButton* fixTimeButton = ImageButton::create(fixTime, this, menu_selector(StartController::onFixTime));
+    fixTimeButton->setPosition(LogicToReal(ccp(1, 1)));
     
-    CCSprite* exit = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("exit.png"));
-    ImageButton* exitButton = ImageButton::create(exit, this, menu_selector(StartController::onEnd));
-    exitButton->setPosition(LogicToReal(ccp(2, 1)));
+    CCSprite* fixMove = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("exit.png"));
+    ImageButton* fixMoveButton = ImageButton::create(fixMove, this, menu_selector(StartController::onFixMove));
+    fixMoveButton->setPosition(LogicToReal(ccp(2, 1)));
     
-    CCMenu* menu = CCMenu::create(h2hButton, h2cButton, helpButton, exitButton, NULL);
+    CCMenu* menu = CCMenu::create(h2hButton, h2cButton, fixTimeButton, fixMoveButton, NULL);
     menu->setPosition(ccp(0, 0));
     this->addChild(menu);
     
     return true;
 }
 
-void StartController::onH2H(CCObject* o){
+void transfer2NextScene(CCScene* scene){
     CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
-    CCScene* gs = GameScene::create();
-    CCTransitionSlideInR* slide = CCTransitionSlideInR::create(0.3, gs);
+    CCTransitionSlideInR* slide = CCTransitionSlideInR::create(0.3, scene);
     CCDirector::sharedDirector()->replaceScene(slide);
+}
+
+void StartController::onH2H(CCObject* o){
+    CCScene* gs = GameScene::create();
+    transfer2NextScene(gs);
 }
 
 void StartController::onH2C(CCObject* o){
-    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
     CCScene* gs = AIGameScene::create();
-    CCTransitionSlideInR* slide = CCTransitionSlideInR::create(0.3, gs);
-    CCDirector::sharedDirector()->replaceScene(slide);
+    transfer2NextScene(gs);
 }
 
-void StartController::onHelp(CCObject* o){
-    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
+void StartController::onFixTime(CCObject* o){
+    CCScene* gs = FixTimeAIGameScene::create();
+    transfer2NextScene(gs);
 }
 
-void StartController::onEnd(CCObject* o){
-    CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
-    CCDirector::sharedDirector()->end();
-    #if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
-        exit(0);
-    #endif
+void StartController::onFixMove(CCObject* o){
+    CCScene* gs = FixMoveAIGameScene::create();
+    transfer2NextScene(gs);
 }
 

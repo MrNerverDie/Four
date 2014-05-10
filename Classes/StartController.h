@@ -25,10 +25,10 @@ public:
     void onH2H(CCObject* o);
     // 进行人机对战
     void onH2C(CCObject* o);
-    // 当点击帮助时
-    void onHelp(CCObject* o);
-    // 当点击退出时
-    void onEnd(CCObject* o);
+    // 当固定时间进行人机对战时
+    void onFixTime(CCObject* o);
+    // 当固定步数进行人机对战时
+    void onFixMove(CCObject* o);
 };
 
 

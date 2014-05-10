@@ -85,14 +85,14 @@ void PieceView::onRegret(CCObject* o){
     if (!(currentMove->dest).equals(RealToLogic(this->getPosition())))
         return;
     CCPoint src = LogicToReal(currentMove->src);
-    model->waitAction(this, CCEaseExponentialOut::create(CCMoveTo::create(0.5f, src)), END_MOVE_MSG);
+    model->waitAction(this, CCEaseExponentialOut::create(CCMoveTo::create(0.6f, src)), END_MOVE_MSG);
 }
 
 void PieceView::onAIRegret(CCObject* o){
     if (!(currentMove->dest).equals(RealToLogic(this->getPosition())))
         return;
     CCPoint src = LogicToReal(currentMove->src);
-    model->waitAction(this, CCEaseExponentialOut::create(CCMoveTo::create(0.5f, src)), AI_END_MOVE_MSG);
+    model->waitAction(this, CCEaseExponentialOut::create(CCMoveTo::create(0.65f, src)), AI_END_MOVE_MSG);
 }
 
 

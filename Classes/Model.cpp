@@ -35,6 +35,15 @@ void Model::onMessage(const string& msg){
     }
 }
 
+void Model::onMessage(const string &msg, CCObject* o){
+    CCLOG("%s", msg.c_str());
+    if (!async) {
+        this->currentState = this->transitions[this->currentState][msg];
+        CCLOG("transfer to State : %s", this->currentState.c_str());
+        cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(msg.c_str(), o);
+    }
+}
+
 void Model::waitAction(cocos2d::CCNode* node, cocos2d::CCFiniteTimeAction* action, const string& msg){
     using namespace cocos2d;
     async = true;

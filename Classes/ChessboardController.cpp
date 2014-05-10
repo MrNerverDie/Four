@@ -12,6 +12,7 @@
 #include "Chessboard.h"
 #include "RotFlowerParticle.h"
 #include "ChessboardProtocol.h"
+#include "Tag.h"
 
 ChessboardController::~ChessboardController(){
     CC_SAFE_RELEASE(chessboard);
@@ -28,14 +29,14 @@ bool ChessboardController::init(){
     this->chessboard = Chessboard::create();
     this->chessboard->retain();
     
-    PIECE _pieces[4][4] = {
-        {ZERO, WHITE, ZERO, BLACK},
-        {ZERO, ZERO, WHITE, BLACK},
-        {ZERO, ZERO, ZERO, ZERO},
-        {ZERO, ZERO, ZERO, ZERO}
-    };
+//    PIECE _pieces[4][4] = {
+//        {ZERO, WHITE, ZERO, BLACK},
+//        {ZERO, ZERO, WHITE, BLACK},
+//        {ZERO, ZERO, ZERO, ZERO},
+//        {ZERO, ZERO, ZERO, ZERO}
+//    };
     
-    chessboard->setPieces(_pieces);
+//    chessboard->setPieces(_pieces);
     
     //初始化View
     CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
@@ -55,10 +56,17 @@ bool ChessboardController::init(){
     }
     
     CCSprite* black_logo = LogoView::create(&(this->chessboard->getCurrentMove()), cache->spriteFrameByName("black_logo.png"), BLACK);
+    black_logo->setTag(ROUND_BLACK);
     CCSprite* white_logo = LogoView::create(&(this->chessboard->getCurrentMove()), cache->spriteFrameByName("white_logo.png"), WHITE);
+    white_logo->setTag(ROUND_WHITE);
     this->addChild(black_logo);
     this->addChild(white_logo);
     
+    // test font
+//    CCLabelTTF* label = CCLabelTTF::create("Haha", "Helvetica-Bold", 32.0f);
+//    label->setPosition(ccp(100, 100));
+//    label->setColor(ccBLACK);
+//    this->addChild(label);
     
     // touch
 

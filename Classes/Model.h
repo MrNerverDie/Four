@@ -42,6 +42,7 @@ public:
     bool checkMessage(const string& msg);
     
     void onMessage(const string& msg);
+    void onMessage(const string& msg, CCObject* o);
     
     void onAsyncMessage(CCNode* node , CCString* msg);
     

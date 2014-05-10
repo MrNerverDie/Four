@@ -121,11 +121,13 @@ void Chessboard::alterNextRound(){
     currentMove.dest = ccp(-1, -1);
     currentMove.eatenPoints.clear();
 
-    this->onMessage(NEXT_ROUND_MSG);
+    this->onMessage(NEXT_ROUND_MSG, this);
 }
 
 
 void Chessboard::alterRegret(){
+    if (moves.empty())
+        return;
     currentMove = moves.top();
     moves.pop();
     for (CCPoint p : currentMove.eatenPoints) {
@@ -137,6 +139,8 @@ void Chessboard::alterRegret(){
 }
 
 void Chessboard::alterAIRegret(){
+    if (moves.empty())
+        return;
     currentMove = moves.top();
     moves.pop();
     for (CCPoint p : currentMove.eatenPoints) {
