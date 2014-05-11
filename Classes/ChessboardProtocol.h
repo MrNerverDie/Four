@@ -42,6 +42,8 @@ struct Move {
 
 typedef std::vector< std::vector<PIECE> > ChessboardData;
 
+void Pieces2Data(PIECE _pieces[][WIDTH], ChessboardData& data);
+
 CCPoint LogicToReal(const cocos2d::CCPoint& p);
 
 CCPoint RealToLogic(const cocos2d::CCPoint& p);

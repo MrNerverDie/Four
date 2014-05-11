@@ -8,6 +8,11 @@
 
 #include "ChessboardProtocol.h"
 
+void Pieces2Data(PIECE _pieces[][WIDTH], ChessboardData& data){
+    for (int i = 0; i < HEIGHT; ++i) {
+        data.push_back(std::vector<PIECE>(_pieces[i], _pieces[i] + WIDTH));
+    }
+}
 
 CCPoint LogicToReal(const cocos2d::CCPoint& p){
     return ccp(X_OFFSET + p.x * PIECE_WIDTH, Y_OFFSET + p.y * PIECE_HEIGHT);

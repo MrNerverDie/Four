@@ -40,7 +40,7 @@ bool Chessboard::init(){
         { WHITE, WHITE, WHITE, WHITE }
     };
    
-    this->setPieces(_pieces);
+    Pieces2Data(_pieces, pieces);
     
     using namespace cocos2d;
     
@@ -64,8 +64,6 @@ bool Chessboard::checkEat(Move& move){
 
 // 检测能否吃掉一个棋子
 void Chessboard::alterEat(const Move& move){
-    
-    
     currentMove.eatenPoints = move.eatenPoints;
     std::vector<cocos2d::CCPoint>& eatenPoints = currentMove.eatenPoints;
     
@@ -89,6 +87,7 @@ void Chessboard::alterMove(const Move& move){
     
     currentMove.src = move.src;
     currentMove.dest =  move.dest;
+    currentMove.eatenPoints.clear();
     
     // 将currentPoint的值改为目标位置的值
     this->setPiece(currentMove.src, ZERO);
@@ -106,11 +105,30 @@ PIECE Chessboard::getPiece(const cocos2d::CCPoint& p){
 }
 
 void Chessboard::setPieces(PIECE _pieces[][WIDTH]){
-    pieces.clear();
     for (int i = 0; i < HEIGHT; ++i) {
-        pieces.push_back(vector<PIECE>(_pieces[i], _pieces[i] + WIDTH));
+        for (int j = 0; j < WIDTH; ++j) {
+            if (getPiece(ccp(j, i)) != ZERO )
+                currentMove.eatenPoints.push_back(ccp(j, i));
+        }
     }
+    cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(BEGIN_EAT_MSG);
+    pieces.clear();
+    Pieces2Data(_pieces, pieces);
     return ;
+}
+
+void Chessboard::setPieces(const ChessboardData& data ){
+    currentMove.eatenPoints.clear();
+    for (int i = 0; i < HEIGHT; ++i) {
+        for (int j = 0; j < WIDTH; ++j) {
+            if (getPiece(ccp(j, i)) != ZERO )
+                currentMove.eatenPoints.push_back(ccp(j, i));
+        }
+    }
+    cocos2d::CCNotificationCenter::sharedNotificationCenter()->postNotification(BEGIN_EAT_MSG);
+    pieces.clear();
+    pieces = data;
+    return;
 }
 
 void Chessboard::alterNextRound(){

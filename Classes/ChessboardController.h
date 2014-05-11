@@ -25,6 +25,8 @@ class ChessboardController : public BaseController  {
 protected:
     Chessboard* chessboard;
     
+    void initPieceViews();
+    
 public:
     virtual bool init();
     virtual ~ChessboardController();

@@ -18,6 +18,24 @@ ChessboardController::~ChessboardController(){
     CC_SAFE_RELEASE(chessboard);
 }
 
+void ChessboardController::initPieceViews(){
+    CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
+    
+    for (int i = 0; i < HEIGHT; ++i) {
+        for (int j = 0; j < WIDTH; ++j) {
+            CCString* frame_name;
+            if (chessboard->getPiece(ccp(j, i)) == BLACK )
+                frame_name = new CCString("black.png");
+            else if (chessboard->getPiece(ccp(j, i)) == WHITE)
+                frame_name = new CCString("white.png");
+            else
+                continue;
+            CCSprite* black = PieceView::create(&(this->chessboard->getCurrentMove()), this->chessboard, cache->spriteFrameByName(frame_name->getCString()), ccp(j, i));
+            this->addChild(black);
+        }
+    }
+}
+
 bool ChessboardController::init(){
     using namespace cocos2d;
     
@@ -41,19 +59,7 @@ bool ChessboardController::init(){
     //初始化View
     CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
     
-    for (int i = 0; i < HEIGHT; ++i) {
-        for (int j = 0; j < WIDTH; ++j) {
-            CCString* frame_name;
-            if (chessboard->getPiece(ccp(j, i)) == BLACK )
-                frame_name = new CCString("black.png");
-            else if (chessboard->getPiece(ccp(j, i)) == WHITE)
-                frame_name = new CCString("white.png");
-            else
-                continue;
-            CCSprite* black = PieceView::create(&(this->chessboard->getCurrentMove()), this->chessboard, cache->spriteFrameByName(frame_name->getCString()), ccp(j, i));
-            this->addChild(black);
-        }
-    }
+    initPieceViews();
     
     CCSprite* black_logo = LogoView::create(&(this->chessboard->getCurrentMove()), cache->spriteFrameByName("black_logo.png"), BLACK);
     black_logo->setTag(ROUND_BLACK);
@@ -61,14 +67,6 @@ bool ChessboardController::init(){
     white_logo->setTag(ROUND_WHITE);
     this->addChild(black_logo);
     this->addChild(white_logo);
-    
-    // test font
-//    CCLabelTTF* label = CCLabelTTF::create("Haha", "Helvetica-Bold", 32.0f);
-//    label->setPosition(ccp(100, 100));
-//    label->setColor(ccBLACK);
-//    this->addChild(label);
-    
-    // touch
 
     return true;
 }

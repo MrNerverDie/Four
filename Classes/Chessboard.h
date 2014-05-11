@@ -59,6 +59,7 @@ public:
     
     // for test, not recommend to use
     void setPieces(PIECE _pieces[][WIDTH]);
+    void setPieces(const ChessboardData& data );
     PIECE getPiece(const cocos2d::CCPoint& p);
     
 };
