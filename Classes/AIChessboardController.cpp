@@ -11,6 +11,10 @@
 #include "Message.h"
 #include "Chessboard.h"
 #include "PieceView.h"
+#include "LogoView.h"
+#include "Tag.h"
+#include "ResultView.h"
+#include "RotFlowerParticle.h"
 
 AIChessboardController::~AIChessboardController(){
     CC_SAFE_RELEASE(actor);
@@ -21,6 +25,15 @@ bool AIChessboardController::init(){
     
     actor = AIController::create();
     actor->retain();
+    
+    LogoView* black = dynamic_cast<LogoView*>(this->getChildByTag(ROUND_BLACK));
+    LogoView* white = dynamic_cast<LogoView*>(this->getChildByTag(ROUND_WHITE));
+    
+    black->activateStop();
+    white->activateStop();
+    
+    CCLabelTTF* label = ResultView::create();
+    this->addChild(label);
     
     return true;
 }
@@ -59,6 +72,19 @@ void AIChessboardController::tryAIRegret(cocos2d::CCObject *o){
             CCSpriteFrameCache* cache = CCSpriteFrameCache::sharedSpriteFrameCache();
             CCSprite* piece = PieceView::create(&(this->chessboard->getCurrentMove()), this->chessboard, cache->spriteFrameByName(frame_name->getCString()), p);
             this->addChild(piece);
+        }
+    }
+}
+
+void AIChessboardController::tryWin(cocos2d::CCObject* o){
+    if (chessboard->checkMessage(WIN_MSG)) {
+        if (chessboard->checkWin(chessboard->getCurrentMove()) &&  chessboard->getCurrentMove().currentRound == PLAYER){
+            chessboard->alterWin();
+            this->addChild(RotFlowerParticle::create());
+        }else if (chessboard->checkWin(chessboard->getCurrentMove()) &&  chessboard->getCurrentMove().currentRound == AI) {
+            chessboard->alterLose();
+        }else{
+            chessboard->alterNextRound();
         }
     }
 }

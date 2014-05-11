@@ -29,6 +29,10 @@ public:
     
     // listener
     void onNextRound(CCObject* o);
+
+    // 在有AI的情况下LogoView需要对胜利或者失败的场景做出反应
+    void activateStop();
+    void onStop();
 };
 
 #endif /* defined(__Four__LogoView__) */

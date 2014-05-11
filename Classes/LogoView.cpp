@@ -45,3 +45,12 @@ void LogoView::onNextRound(CCObject* o){
         this->runAction(CCSequence::createWithTwoActions(CCMoveTo::create(0.4f, ccp(-192, 960)), CCPlace::create(ccp(832, 960)) ) );
     }
 }
+
+void LogoView::activateStop(){
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(LogoView::onStop), WIN_MSG, nullptr);
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(LogoView::onStop), LOSE_MSG, nullptr);
+}
+
+void LogoView::onStop(){
+    this->runAction(CCSequence::createWithTwoActions(CCScaleTo::create(0.05f, 0.5f), CCRemoveSelf::create()));
+}

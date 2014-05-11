@@ -43,6 +43,7 @@ public:
     // 检查能否让某一方获胜,并且分发获胜事件
     bool checkWin(const Move& move);
     void alterWin();
+    void alterLose();
     
     // 检测能否吃掉一个棋子,并且将棋盘模型进行改变
     bool checkEat(Move& move);

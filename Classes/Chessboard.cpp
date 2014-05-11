@@ -151,4 +151,8 @@ void Chessboard::alterAIRegret(){
     this->onMessage(AI_REGRET_MSG);
 }
 
+void Chessboard::alterLose(){
+    this->onMessage(LOSE_MSG);
+}
+
 

@@ -25,6 +25,7 @@ public:
     void onExit();
     
     void onTimeChanged(float dt);
+    void onStop();
 };
 
 #endif /* defined(__Four__TimeBoard__) */
