@@ -37,7 +37,7 @@ public class Four extends Cocos2dxActivity{
     public Cocos2dxGLSurfaceView onCreateView() {
     	Cocos2dxGLSurfaceView glSurfaceView = new Cocos2dxGLSurfaceView(this);
     	// Four should create stencil buffer
-    	glSurfaceView.setEGLConfigChooser(5, 6, 5, 0, 16, 8);
+    	glSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 16, 0);
     	
     	return glSurfaceView;
     }

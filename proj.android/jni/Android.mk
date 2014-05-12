@@ -27,9 +27,11 @@ MY_CPP_LIST := $(MY_CPP_LIST:$(LOCAL_PATH)/%=%)
 
 LOCAL_SRC_FILES := $(MY_CPP_LIST)
 
-
-
-LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes \
+                    $(LOCAL_PATH)/../../Classes/C2DXShareSDK \
+                    $(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android \
+					$(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android/JSON \
+					$(LOCAL_PATH)/../../Classes/C2DXShareSDK/Android/JSON/cJSON
 
 LOCAL_WHOLE_STATIC_LIBRARIES += cocos2dx_static
 LOCAL_WHOLE_STATIC_LIBRARIES += cocosdenshion_static

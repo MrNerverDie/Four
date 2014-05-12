@@ -14,6 +14,7 @@
 
 HelpController::~HelpController(){
     CC_SAFE_RETAIN(intros);
+    CC_SAFE_RELEASE(label);
 }
 
 bool HelpController::init(){
@@ -23,7 +24,8 @@ bool HelpController::init(){
     CC_SAFE_RETAIN(intros);
 
     
-    intros->addObject(CCString::create(""));
+    intros->addObject(CCString::create("黑子轻轻下滑，两黑一白，即可吃子"));
+    intros->addObject(CCString::create("当白子被吃到仅剩一个时，即可胜利"));
     PIECE pieces1[HEIGHT][WIDTH] = {
         {ZERO, BLACK, ZERO, WHITE},
         {ZERO, ZERO, BLACK, ZERO},
@@ -35,7 +37,8 @@ bool HelpController::init(){
     datas.push_back(data1);
     moves.push_back(Move(BLACK, ccp(2, 1), ccp(2, 0)));
     
-    intros->addObject(CCString::create(""));
+    intros->addObject(CCString::create("白子轻轻下滑，白子先动，不可吃子"));
+    intros->addObject(CCString::create("教程结束，开始游戏吧"));
     PIECE pieces2[HEIGHT][WIDTH] = {
         {ZERO, BLACK, BLACK, ZERO},
         {ZERO, ZERO, ZERO, WHITE},
@@ -51,6 +54,12 @@ bool HelpController::init(){
     CC_SAFE_RETAIN(this->chessboard);
     chessboard->setPieces(datas[0]);
     ChessboardController::initPieceViews();
+    
+    label = CCLabelTTF::create(dynamic_cast<CCString*>(intros->objectAtIndex(0))->getCString(), "Helvetica-Bold", 32.0f);
+    label->setPosition(ccp(320, 960));
+    label->setColor(ccBLACK);
+    this->addChild(label);
+    CC_SAFE_RETAIN(label);
     
     progress = 0;
     
@@ -74,6 +83,7 @@ void HelpController::ccTouchEnded(cocos2d::CCTouch *touch, cocos2d::CCEvent *eve
             chessboard->setPieces(datas[index]);
             this->initPieceViews();
         }
+        label->setString(dynamic_cast<CCString*>(intros->objectAtIndex(progress))->getCString());
     }else{
         StartScene* scene = StartScene::create();
         CCTransitionSlideInR* slide = CCTransitionSlideInR::create(0.3, scene);

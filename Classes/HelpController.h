@@ -24,6 +24,7 @@ private:
     std::vector<ChessboardData> datas;
     std::vector<Move> moves;
     int progress;
+    CCLabelTTF* label;
     
 public:
     ~HelpController();

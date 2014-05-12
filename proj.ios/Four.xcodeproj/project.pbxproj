@@ -906,6 +906,40 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
+		0914CBCC19207CAD002B0E40 /* GameMode */ = {
+			isa = PBXGroup;
+			children = (
+				0923BAED1917C6D4004A19BA /* AIChessboardController.cpp */,
+				0923BAEE1917C6D4004A19BA /* AIChessboardController.h */,
+				09891BC1191CB5300033BCA1 /* FixTimeAIChessboardController.cpp */,
+				09891BC2191CB5300033BCA1 /* FixTimeAIChessboardController.h */,
+				09891BC4191CB5430033BCA1 /* FixMoveAIChessboardController.cpp */,
+				09891BC5191CB5430033BCA1 /* FixMoveAIChessboardController.h */,
+				096CD46219081E18004CC84A /* ChessboardController.cpp */,
+				096CD46319081E18004CC84A /* ChessboardController.h */,
+			);
+			name = GameMode;
+			sourceTree = "<group>";
+		};
+		0914CBCD19207D18002B0E40 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				0923BAF01917C7BF004A19BA /* AIGameScene.cpp */,
+				0923BAF11917C7BF004A19BA /* AIGameScene.h */,
+				0921CCC91909ED92009C8DEC /* GameScene.cpp */,
+				0921CCCA1909ED92009C8DEC /* GameScene.h */,
+				09CA2FB1191377010037BF91 /* StartScene.cpp */,
+				09CA2FB2191377010037BF91 /* StartScene.h */,
+				09891BBB191CB4650033BCA1 /* FixTimeAIGameScene.cpp */,
+				09891BBC191CB4650033BCA1 /* FixTimeAIGameScene.h */,
+				09891BBE191CB4770033BCA1 /* FixMoveAIGameScene.cpp */,
+				09891BBF191CB4770033BCA1 /* FixMoveAIGameScene.h */,
+				0961E825191F5F3A008E30A3 /* HelpScene.cpp */,
+				0961E826191F5F3A008E30A3 /* HelpScene.h */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
 		0923BAEC1917C5CA004A19BA /* AI */ = {
 			isa = PBXGroup;
 			children = (
@@ -929,21 +963,16 @@
 		0963300919017DBB0061800B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				095C8D8F1918F19200B64890 /* AudioManager.cpp */,
+				095C8D901918F19200B64890 /* AudioManager.h */,
+				0914CBCC19207CAD002B0E40 /* GameMode */,
 				0923BAEC1917C5CA004A19BA /* AI */,
-				096CD46219081E18004CC84A /* ChessboardController.cpp */,
-				096CD46319081E18004CC84A /* ChessboardController.h */,
 				09CA2FB4191377890037BF91 /* StartController.cpp */,
 				09CA2FB5191377890037BF91 /* StartController.h */,
 				09ECA60D1913E0690032707D /* BaseController.cpp */,
 				09ECA60E1913E0690032707D /* BaseController.h */,
 				09CF93E31913EC7B0041C6F7 /* MenuController.cpp */,
 				09CF93E41913EC7B0041C6F7 /* MenuController.h */,
-				0923BAED1917C6D4004A19BA /* AIChessboardController.cpp */,
-				0923BAEE1917C6D4004A19BA /* AIChessboardController.h */,
-				09891BC1191CB5300033BCA1 /* FixTimeAIChessboardController.cpp */,
-				09891BC2191CB5300033BCA1 /* FixTimeAIChessboardController.h */,
-				09891BC4191CB5430033BCA1 /* FixMoveAIChessboardController.cpp */,
-				09891BC5191CB5430033BCA1 /* FixMoveAIChessboardController.h */,
 				0961E828191F64E4008E30A3 /* HelpController.cpp */,
 				0961E829191F64E4008E30A3 /* HelpController.h */,
 			);
@@ -966,6 +995,7 @@
 		0963300B19017DE00061800B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0914CBCD19207D18002B0E40 /* Scene */,
 				096CD45F19081DFE004CC84A /* PieceView.cpp */,
 				096CD46019081DFE004CC84A /* PieceView.h */,
 				09CA2FB7191378650037BF91 /* ImageButton.cpp */,
@@ -982,13 +1012,6 @@
 				09776AE6191F22160081F59C /* ResultView.h */,
 			);
 			name = View;
-			sourceTree = "<group>";
-		};
-		0963300C19017DE80061800B /* Scene */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Scene;
 			sourceTree = "<group>";
 		};
 		09D1164B190532FA00139B57 /* Protocols */ = {
@@ -1489,26 +1512,11 @@
 			isa = PBXGroup;
 			children = (
 				09D1164B190532FA00139B57 /* Protocols */,
-				0963300C19017DE80061800B /* Scene */,
 				0963300B19017DE00061800B /* View */,
 				0963300A19017DD40061800B /* Model */,
 				0963300919017DBB0061800B /* Controller */,
 				1AFAF8B316D35DE700DB1158 /* AppDelegate.cpp */,
 				1AFAF8B416D35DE700DB1158 /* AppDelegate.h */,
-				0921CCC91909ED92009C8DEC /* GameScene.cpp */,
-				0921CCCA1909ED92009C8DEC /* GameScene.h */,
-				09CA2FB1191377010037BF91 /* StartScene.cpp */,
-				09CA2FB2191377010037BF91 /* StartScene.h */,
-				0923BAF01917C7BF004A19BA /* AIGameScene.cpp */,
-				0923BAF11917C7BF004A19BA /* AIGameScene.h */,
-				095C8D8F1918F19200B64890 /* AudioManager.cpp */,
-				095C8D901918F19200B64890 /* AudioManager.h */,
-				09891BBB191CB4650033BCA1 /* FixTimeAIGameScene.cpp */,
-				09891BBC191CB4650033BCA1 /* FixTimeAIGameScene.h */,
-				09891BBE191CB4770033BCA1 /* FixMoveAIGameScene.cpp */,
-				09891BBF191CB4770033BCA1 /* FixMoveAIGameScene.h */,
-				0961E825191F5F3A008E30A3 /* HelpScene.cpp */,
-				0961E826191F5F3A008E30A3 /* HelpScene.h */,
 			);
 			name = Classes;
 			path = ../classes;
