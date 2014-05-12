@@ -4,6 +4,8 @@
 #include "SimpleAudioEngine.h"
 #include "AudioManager.h"
 
+#include <string>
+
 USING_NS_CC;
 
 AppDelegate::AppDelegate() {
@@ -30,18 +32,18 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     // create a scene. it's an autorelease object
     
-    CCDictionary* config = CCDictionary::createWithContentsOfFileThreadSafe("Config.plist");
+    CCDictionary* config = CCDictionary::create();
     
     CCScene* pScene = nullptr;
     
-    CCAssert(config  != nullptr, "null");
+    std::string config_path = CCFileUtils::sharedFileUtils()->getWritablePath() + "Config.plist";
     
-    bool firstTime = dynamic_cast<CCString*>(config->objectForKey("FirstTime"))->boolValue();
+    bool firstTime = !CCFileUtils::sharedFileUtils()->isFileExist(config_path);
     
     if (firstTime) {
         pScene = HelpScene::create();
-        config->setObject(CCBool::create(!firstTime), "FirstTime");
-        config->writeToFile("Config.plist");
+        config->setObject(CCString::create("0"), "FirstTime");
+        CCAssert(config->writeToFile(config_path.c_str()), "not passes");
     }else{
         pScene = StartScene::create();
     }

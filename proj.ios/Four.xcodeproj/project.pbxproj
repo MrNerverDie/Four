@@ -30,7 +30,6 @@
 		09891BC0191CB4770033BCA1 /* FixMoveAIGameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09891BBE191CB4770033BCA1 /* FixMoveAIGameScene.cpp */; };
 		09891BC3191CB5300033BCA1 /* FixTimeAIChessboardController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09891BC1191CB5300033BCA1 /* FixTimeAIChessboardController.cpp */; };
 		09891BC6191CB5430033BCA1 /* FixMoveAIChessboardController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09891BC4191CB5430033BCA1 /* FixMoveAIChessboardController.cpp */; };
-		09AF855F191F5CDC004A8330 /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09AF855E191F5CDC004A8330 /* Config.plist */; };
 		09CA2FB3191377010037BF91 /* StartScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09CA2FB1191377010037BF91 /* StartScene.cpp */; };
 		09CA2FB6191377890037BF91 /* StartController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09CA2FB4191377890037BF91 /* StartController.cpp */; };
 		09CA2FB9191378650037BF91 /* ImageButton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 09CA2FB7191378650037BF91 /* ImageButton.cpp */; };
@@ -346,7 +345,6 @@
 		09891BC2191CB5300033BCA1 /* FixTimeAIChessboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FixTimeAIChessboardController.h; path = ../Classes/FixTimeAIChessboardController.h; sourceTree = "<group>"; };
 		09891BC4191CB5430033BCA1 /* FixMoveAIChessboardController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = FixMoveAIChessboardController.cpp; path = ../Classes/FixMoveAIChessboardController.cpp; sourceTree = "<group>"; };
 		09891BC5191CB5430033BCA1 /* FixMoveAIChessboardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FixMoveAIChessboardController.h; path = ../Classes/FixMoveAIChessboardController.h; sourceTree = "<group>"; };
-		09AF855E191F5CDC004A8330 /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		09CA2FB1191377010037BF91 /* StartScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartScene.cpp; path = ../Classes/StartScene.cpp; sourceTree = "<group>"; };
 		09CA2FB2191377010037BF91 /* StartScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartScene.h; path = ../Classes/StartScene.h; sourceTree = "<group>"; };
 		09CA2FB4191377890037BF91 /* StartController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StartController.cpp; path = ../Classes/StartController.cpp; sourceTree = "<group>"; };
@@ -2124,7 +2122,6 @@
 				D4EF949F15BD2D9800D803EB /* Icon-144.png */,
 				D4EF949915BD2D8B00D803EB /* Icon-57.png */,
 				D4EF949D15BD2D9600D803EB /* Icon-72.png */,
-				09AF855E191F5CDC004A8330 /* Config.plist */,
 			);
 			name = Resources;
 			path = ../Resources;
@@ -2216,7 +2213,6 @@
 				D446FD6E16102124000ADA7B /* Default@2x.png in Resources */,
 				15A3D9961682F7F9002FB0C5 /* CMakeLists.txt in Resources */,
 				09F64A8D1909F80900C186A6 /* AllSprites.png in Resources */,
-				09AF855F191F5CDC004A8330 /* Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
