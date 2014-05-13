@@ -2,7 +2,7 @@
 #define  _APP_DELEGATE_H_
 
 #include "cocos2d.h"
-#include "C2DXShareSDK.h"
+
 
 class AudioManager;
 
@@ -17,7 +17,6 @@ private:
     AudioManager* audio;
 
         //初始化平台配置
-    void initPlatformConfig();
 
 public:
     AppDelegate();

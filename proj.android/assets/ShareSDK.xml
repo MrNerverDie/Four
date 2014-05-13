@@ -58,7 +58,7 @@
         AppKey="568898243"
         AppSecret="38a4f8204cc784f81f9f0daaf31e02e3"
         RedirectUrl="http://www.sharesdk.cn"
-        ShareByAppClient="false"
+        ShareByAppClient="true"
         Enable="true" />
 
     <TencentWeibo
@@ -67,7 +67,7 @@
         AppKey="801307650"
         AppSecret="ae36f4ee3946e1cbb98d6965b0b2ff5c"
         RedirectUri="http://sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
 
     <!-- ShareByAppClient标识是否使用微博客户端分享，默认是false -->
     <QZone
@@ -95,20 +95,20 @@
         SortId="4"
         AppId="wx4868b35061f87885"
         BypassApproval="false"
-        Enable="false" />
+        Enable="true" />
     
     <WechatMoments
         Id="5"
         SortId="5"
         AppId="wx4868b35061f87885"
         BypassApproval="false"
-        Enable="false" />
+        Enable="true" />
         
 	<WechatFavorite
         Id="6"
         SortId="6"
         AppId="wx4868b35061f87885"
-        Enable="false" />
+        Enable="true" />
     
 	<QQ
         Id="7"
@@ -122,7 +122,7 @@
         SortId="8"
         ConsumerKey="107704292745179"
         ConsumerSecret="38053202e1a5fe26c80c753071f0b573"
-        Enable="false" />
+        Enable="true" />
 
     <Twitter
         Id="9"
@@ -130,7 +130,7 @@
         ConsumerKey="mnTGqtXk0TYMXYTN7qUxg"
         ConsumerSecret="ROkFqr8c3m1HXqS3rm3TJ0WkAJuwBOSaWhPbZ9Ojuc"
         CallbackUrl="http://www.sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
 
     <Renren
         Id="10"
@@ -146,7 +146,7 @@
         AppKey="358443394194887cee81ff5890870c7c"
         AppSecret="da32179d859c016169f66d90b6db2a23"
         RedirectUri="http://www.sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
     
     <Email
         Id="12" 
@@ -165,7 +165,7 @@
         ConsumerKey="q70QBQM9T0COxzYpGLj9"
         ConsumerSecret="XXYrx%QXbS!uA^m2$8TaD4T1HQoRPUH0gaG2BgBd"
         CallbackUrl="http://www.sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
 	
     <NetEaseMicroBlog
         Id="15"
@@ -173,7 +173,7 @@
         ConsumerKey="T5EI7BXe13vfyDuy"
         ConsumerSecret="gZxwyNOvjFYpxwwlnuizHRRtBRZ2lV1j"
         RedirectUri="http://www.shareSDK.cn"
-        Enable="false" />
+        Enable="true" />
     
     <Douban
         Id="16"
@@ -181,7 +181,7 @@
         ApiKey="02e2cbe5ca06de5908a863b15e149b0b"
         Secret="9f1e7b4f71304f2f"
         RedirectUri="http://www.sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
     
     <YouDao
         Id="17"
@@ -190,7 +190,7 @@
         ConsumerKey="dcde25dca105bcc36884ed4534dab940"
         ConsumerSecret="d98217b4020e7f1874263795f44838fe"
         RedirectUri="http://www.sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
         
 	<SohuSuishenkan
         Id="18"
@@ -198,7 +198,7 @@
         AppKey="e16680a815134504b746c86e08a19db0"
         AppSecret="b8eec53707c3976efc91614dd16ef81c"
         RedirectUri="http://sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
         
     <!-- 
     	在中国大陆，印象笔记有两个服务器，一个是沙箱（sandbox），一个是生产服务器（china）。
@@ -217,7 +217,7 @@
     	ConsumerKey="sharesdk-7807"
 		ConsumerSecret="d05bf86993836004"
 		ShareByAppClient="false"
-		Enable="false" />
+		Enable="true" />
     
     <LinkedIn
     	Id="20"
@@ -225,12 +225,12 @@
         ApiKey="ejo5ibkye3vo"
         SecretKey="cC7B2jpxITqPLZ5M" 
         RedirectUrl="http://sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
     
      <GooglePlus
     	Id="21"
         SortId="21"
-        Enable="false" />
+        Enable="true" />
      
      <FourSquare
     	Id="22"
@@ -238,13 +238,13 @@
         ClientID="G0ZI20FM30SJAJTX2RIBGD05QV1NE2KVIM2SPXML2XUJNXEU"
         ClientSecret="3XHQNSMMHIFBYOLWEPONNV4DOTCDBQH0AEMVGCBG0MZ32XNU"
         RedirectUrl="http://www.sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
         
 	<Pinterest
     	Id="23"
         SortId="23"
         ClientId="1432928"
-        Enable="false" />
+        Enable="true" />
      
      <Flickr
      	Id="24"
@@ -252,7 +252,7 @@
         ApiKey="33d833ee6b6fca49943363282dd313dd"
         ApiSecret="3a2c5b42a8fbb8bb"
         RedirectUri="http://www.sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
         
     <Tumblr
         Id="25"
@@ -260,20 +260,20 @@
         OAuthConsumerKey="2QUXqO9fcgGdtGG1FcvML6ZunIQzAEL8xY6hIaxdJnDti2DYwM"
 		SecretKey="3Rt0sPFj7u2g39mEVB3IBpOzKnM3JnTtxX2bao2JKk4VV1gtNo"
 		CallbackUrl="http://sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
  
 	<Dropbox
         Id="26"
         SortId="26"
         AppKey="7janx53ilz11gbs"
 		AppSecret="c1hpx5fz6tzkm32"
-        Enable="false" />
+        Enable="true" />
         
     <VKontakte 
     	Id="27"
         SortId="27"
         ApplicationId="3921561"
-        Enable="false" />
+        Enable="true" />
         
     <Instagram 
     	Id="28"
@@ -281,7 +281,7 @@
         ClientId="ff68e3216b4f4f989121aa1c2962d058"
 		ClientSecret="1b2e82f110264869b3505c3fe34e31a1"
 		RedirectUri="http://sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
     
     <!-- 
     	Yixin易信和YixinMoments易信朋友圈的appid是一样的；
@@ -291,7 +291,7 @@
        	 易信测试的时候需要先签名打包出apk,
 		sample测试易信，要先签名打包，keystore在sample项目中，密码123456
 		
-		BypassApproval是绕过审核的标记，设置为false后AppId将被忽略，故不经过
+		BypassApproval是绕过审核的标记，设置为true后AppId将被忽略，故不经过
 		审核的应用也可以执行分享，但是仅限于分享文字或图片，不能分享其他类型，
 		默认值为false。
 	-->
@@ -300,14 +300,14 @@
         SortId="29"
         AppId="yx0d9a9f9088ea44d78680f3274da1765f"
         ShareByAppClient="false"
-        Enable="false" />
+        Enable="true" />
 	
 	<YixinMoments
     	Id="30"
         SortId="30"
         AppId="yx0d9a9f9088ea44d78680f3274da1765f"
         ShareByAppClient="false"
-        Enable="false" />
+        Enable="true" />
 
 	<Mingdao
     	Id="31"
@@ -315,6 +315,6 @@
         AppKey="EEEE9578D1D431D3215D8C21BF5357E3"
         AppSecret="5EDE59F37B3EFA8F65EEFB9976A4E933"
         RedirectUri="http://sharesdk.cn"
-        Enable="false" />
+        Enable="true" />
 	
 </DevInfor>

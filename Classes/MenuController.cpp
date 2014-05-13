@@ -11,6 +11,8 @@
 #include "StartScene.h"
 #include "Message.h"
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+
 #include "C2DXShareSDK.h"
 
 using namespace cn::sharesdk;
@@ -28,6 +30,8 @@ void shareResultHandler(C2DXResponseState state, C2DXPlatType platType, CCDictio
             break;
     }
 }
+
+#endif
 
 bool MenuController::init(){
     
@@ -77,6 +81,8 @@ void MenuController::onRegret(cocos2d::CCObject *o){
 }
 
 void MenuController::onShare(cocos2d::CCObject *o){
+    
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID) 
     CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
        CCDictionary *content = CCDictionary::create();
     content -> setObject(CCString::create("这是一条测试内容"), "content");
@@ -91,5 +97,6 @@ void MenuController::onShare(cocos2d::CCObject *o){
     content -> setObject(CCString::create("extInfo"), "extInfo");
     
     C2DXShareSDK::showShareMenu(NULL, content, CCPointMake(100, 100), C2DXMenuArrowDirectionLeft, shareResultHandler);
+#endif
 }
 
