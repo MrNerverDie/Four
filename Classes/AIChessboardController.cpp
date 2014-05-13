@@ -35,6 +35,8 @@ bool AIChessboardController::init(){
     CCLabelTTF* label = ResultView::create();
     this->addChild(label);
     
+    modeLabel->setString("人机对战");
+    
     return true;
 }
 

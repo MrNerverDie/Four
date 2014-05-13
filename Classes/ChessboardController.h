@@ -24,6 +24,7 @@ using cocos2d::CCLayer;
 class ChessboardController : public BaseController  {
 protected:
     Chessboard* chessboard;
+    CCLabelTTF* modeLabel;
     
     void initPieceViews();
     

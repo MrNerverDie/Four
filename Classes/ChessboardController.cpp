@@ -14,8 +14,11 @@
 #include "ChessboardProtocol.h"
 #include "Tag.h"
 
+
+
 ChessboardController::~ChessboardController(){
     CC_SAFE_RELEASE(chessboard);
+    CC_SAFE_RELEASE(modeLabel);
 }
 
 void ChessboardController::initPieceViews(){
@@ -67,6 +70,12 @@ bool ChessboardController::init(){
     white_logo->setTag(ROUND_WHITE);
     this->addChild(black_logo);
     this->addChild(white_logo);
+    
+    modeLabel = CCLabelTTF::create("人人对战", "Helvetica-Bold", 32.0f);
+    modeLabel->setColor(ccBLACK);
+    modeLabel->setPosition(ccp(320, 1050));
+    CC_SAFE_RETAIN(modeLabel);
+    this->addChild(modeLabel);
 
     return true;
 }

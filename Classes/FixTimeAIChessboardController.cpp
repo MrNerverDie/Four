@@ -15,5 +15,7 @@ bool FixTimeAIChessboardController::init(){
     CCLabelTTF* label = TimeBoard::create();
     this->addChild(label);
     
+    modeLabel->setString("固定时间");
+    
     return true;
 }

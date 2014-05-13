@@ -9,7 +9,6 @@ LOCAL_MODULE_FILENAME := libcocos2dcpp
 #MY_CPP_LIST := $(wildcard $(LOCAL_PATH)/*.cpp)
 #MY_CPP_LIST += $(wildcard $(LOCAL_PATH)/hellocpp/*.cpp)
 #MY_CPP_LIST += $(wildcard $(LOCAL_PATH)/../../Classes/*.cpp)
-#MY_CPP_LIST += $(wildcard $(LOCAL_PATH)/../../Classes/C2DXShareSDK/*.cpp)
 
 #LOCAL_SRC_FILES := $(MY_CPP_LIST:$(LOCAL_PATH)/%=%)
 
@@ -17,13 +16,19 @@ LOCAL_MODULE_FILENAME := libcocos2dcpp
 MY_CPP_PATH := $(LOCAL_PATH)/hellocpp/
 MY_CPP_PATH += $(LOCAL_PATH)/../../Classes/
 
-#获取目录下的所有文件 
 My_All_Files := $(shell find $(MY_CPP_PATH)/.)
 My_All_Files := $(My_All_Files:$(MY_CPP_PATH)/./%=$(MY_CPP_PATH)%)
+MY_CPP_LIST  := $(filter %.cpp %.c,$(My_All_Files)) 
+MY_CPP_LIST  := $(MY_CPP_LIST:$(LOCAL_PATH)/%=%)
+
+
+#获取目录下的所有文件 
+#My_All_Files := $(shell find $(MY_CPP_PATH)/.)
+#My_All_Files := $(My_All_Files:$(MY_CPP_PATH)/./%=$(MY_CPP_PATH)%)
 
 #从My_All_Files中再次提取所有的cpp文件,这里也可以使用filter函数
-MY_CPP_LIST := $(foreach c_file,$(My_All_Files), $(wildcard $(c_file)/*.cpp) ) 
-MY_CPP_LIST := $(MY_CPP_LIST:$(LOCAL_PATH)/%=%)
+#MY_CPP_LIST := $(foreach c_file,$(My_All_Files), $(wildcard $(c_file)/*.cpp) ) 
+#MY_CPP_LIST := $(MY_CPP_LIST:$(LOCAL_PATH)/%=%)
 
 LOCAL_SRC_FILES := $(MY_CPP_LIST)
 

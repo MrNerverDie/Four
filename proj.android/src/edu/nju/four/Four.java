@@ -26,12 +26,14 @@ package edu.nju.four;
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
+import cn.sharesdk.ShareSDKUtils;
 import android.os.Bundle;
 
 public class Four extends Cocos2dxActivity{
 	
     protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);	
+		ShareSDKUtils.prepare();
 	}
 
     public Cocos2dxGLSurfaceView onCreateView() {

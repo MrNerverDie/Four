@@ -11,6 +11,24 @@
 #include "StartScene.h"
 #include "Message.h"
 
+#include "C2DXShareSDK.h"
+
+using namespace cn::sharesdk;
+
+void shareResultHandler(C2DXResponseState state, C2DXPlatType platType, CCDictionary *shareInfo, CCDictionary *error)
+{
+    switch (state) {
+        case C2DXResponseStateSuccess:
+            CCLog("分享成功");
+            break;
+        case C2DXResponseStateFail:
+            CCLog("分享失败");
+            break;
+        default:
+            break;
+    }
+}
+
 bool MenuController::init(){
     
     if (! CCLayer::init()) {
@@ -36,7 +54,7 @@ bool MenuController::init(){
     regretButton->setPosition(ccp(320, 48));
     
     CCSprite* plus = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("plus.png"));
-    ImageButton* plusButton = ImageButton::create(plus, NULL, NULL);
+    ImageButton* plusButton = ImageButton::create(plus, this, menu_selector(MenuController::onShare));
     plusButton->setPosition(ccp(512, 48));
     
     CCMenu* menu = CCMenu::create(backButton, regretButton, plusButton, NULL);
@@ -60,6 +78,18 @@ void MenuController::onRegret(cocos2d::CCObject *o){
 
 void MenuController::onShare(cocos2d::CCObject *o){
     CCNotificationCenter::sharedNotificationCenter()->postNotification(CLICK_MSG);
-
+       CCDictionary *content = CCDictionary::create();
+    content -> setObject(CCString::create("这是一条测试内容"), "content");
+    content -> setObject(CCString::create("http://img0.bdstatic.com/img/image/308342ac65c10385343da168d569113b07ecb8088ef.jpg"), "image");
+    content -> setObject(CCString::create("测试标题"), "title");
+    content -> setObject(CCString::create("测试描述"), "description");
+    content -> setObject(CCString::create("http://sharesdk.cn"), "url");
+    content -> setObject(CCString::createWithFormat("%d", C2DXContentTypeNews), "type");
+    content -> setObject(CCString::create("http://sharesdk.cn"), "siteUrl");
+    content -> setObject(CCString::create("ShareSDK"), "site");
+    content -> setObject(CCString::create("http://mp3.mwap8.com/destdir/Music/2009/20090601/ZuiXuanMinZuFeng20090601119.mp3"), "musicUrl");
+    content -> setObject(CCString::create("extInfo"), "extInfo");
+    
+    C2DXShareSDK::showShareMenu(NULL, content, CCPointMake(100, 100), C2DXMenuArrowDirectionLeft, shareResultHandler);
 }
 

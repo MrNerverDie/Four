@@ -15,5 +15,7 @@ bool FixMoveAIChessboardController::init(){
     CCLabelTTF* label = MoveBoard::create();
     this->addChild(label);
     
+    modeLabel->setString("固定步数");
+    
     return true;
 }

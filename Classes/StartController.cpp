@@ -32,6 +32,8 @@ bool StartController::init(){
     CCSprite* h2h = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("h2h.png"));
     ImageButton* h2hButton = ImageButton::create(h2h, this, menu_selector(StartController::onH2H));
     h2hButton->setPosition(LogicToReal(ccp(1, 2)));
+
+    
     
     CCSprite* h2c = CCSprite::createWithSpriteFrame(cache->spriteFrameByName("h2c.png"));
     ImageButton* h2cButton = ImageButton::create(h2c, this, menu_selector(StartController::onH2C));
