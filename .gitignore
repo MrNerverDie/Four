@@ -1,2 +1,3 @@
 proj.win32
 proj.android/obj
+*.class
