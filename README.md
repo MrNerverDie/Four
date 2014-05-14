@@ -11,7 +11,7 @@ Cocos2d-x2.2.3
 
 ###安装
 
-1. 将该项目放在Cocos2d-x根目录下的projects文件夹下。
+将该项目放在Cocos2d-x根目录下的projects文件夹下。
 
 ####Xcode
 
