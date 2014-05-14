@@ -32,3 +32,9 @@ Cocos2d-x2.2.3
 ####Eclipse
 
 使用Eclipse的Import功能，将已有的安卓代码导入到Eclipse中，并运行proj.android中的build_native.sh。再在Eclipse中运行即可。
+
+###游戏截图
+
+![1](http://wangxuanyihaha.qiniudn.com/four/four_large_1.png)
+
+![2](http://wangxuanyihaha.qiniudn.com/four/four_large_2.png)
