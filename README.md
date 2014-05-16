@@ -13,7 +13,9 @@ Cocos2d-x2.2.3
 
 ###apk下载地址
 
-[点我下载](http://101.227.151.209/16891/6432FDD1D9799572114607F8465FE86E.apk?mkey=5375e1b8629f782f&f=188a&fsname=edu%2Enju%2Efour%5F1%2E0%5F1.apk&p=.apk)
+[应用宝](http://101.227.151.209/16891/6432FDD1D9799572114607F8465FE86E.apk?mkey=5375e1b8629f782f&f=188a&fsname=edu%2Enju%2Efour%5F1%2E0%5F1.apk&p=.apk)
+
+[360手机助手](http://zhushou.360.cn/detail/index/soft_id/1757556?recrefer=SE_D_four#btn-install-now-log)
 
 ###相关博客
 
