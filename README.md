@@ -13,13 +13,11 @@ Cocos2d-x2.2.3
 
 ###apk下载地址
 
-- 360手机助手：
-- 应用宝
-- 91市场：
+[点我下载](http://wangxuanyihaha.qiniudn.com/four/Four.apk)
 
 ###相关博客
 
-- 架构篇：
+- 架构篇：[http://my.oschina.net/wangxuanyihaha/blog/265649](http://my.oschina.net/wangxuanyihaha/blog/265649)
 
 ###项目导入
 
