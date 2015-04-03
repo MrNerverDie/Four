@@ -1,4 +1,4 @@
-//
+﻿//
 //  ChessboardController.cpp
 //  Four
 //
@@ -71,7 +71,7 @@ bool ChessboardController::init(){
     this->addChild(black_logo);
     this->addChild(white_logo);
     
-    modeLabel = CCLabelTTF::create("人人对战", "Helvetica-Bold", 32.0f);
+    modeLabel = CCLabelTTF::create("human/human", "Helvetica-Bold", 32.0f);
     modeLabel->setColor(ccBLACK);
     modeLabel->setPosition(ccp(320, 1050));
     CC_SAFE_RETAIN(modeLabel);
@@ -85,8 +85,10 @@ void ChessboardController::onEnter()
 {
     using cocos2d::CCDirector;
     
-    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryEat), END_MOVE_MSG, NULL);
-    
+    CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryEat), ANYWHERE_MSG, NULL);
+  
+	CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryNowayMove),END_MOVE_MSG,NULL);
+
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryWin), END_EAT_MSG, NULL);
     
     CCNotificationCenter::sharedNotificationCenter()->addObserver(this, callfuncO_selector(ChessboardController::tryRegret), CLICK_REGRET_MSG, nullptr);
@@ -130,12 +132,32 @@ void ChessboardController::tryMove(const CCPoint& src, const CCPoint& dest){
     Move move(chessboard->getCurrentMove().currentRound,src, newDest);
     if(chessboard->checkMessage(BEGIN_MOVE_MSG) && chessboard->checkMove(move)){
         chessboard->alterMove(move);
-    }
-    
+    } 
+}
+
+void ChessboardController::tryNowayMove(CCObject* o)
+{
+	string ss=chessboard->getState();
+	bool aa=chessboard->checkMessage(NO_WHERE_MSG);
+	if (chessboard->checkMessage(NO_WHERE_MSG)) {//no way move
+		if (chessboard->checkNowhereMove(chessboard->getCurrentMove())){
+			chessboard->alterNowhere();
+			this->addChild(RotFlowerParticle::create());
+			const char* str;
+			if(chessboard->getCurrentMove().currentRound==BLACK)
+				str="Black_Win!";
+			if(chessboard->getCurrentMove().currentRound==WHITE)
+				str="WhiteWin!";
+			modeLabel->setString(str);
+		}else{
+			chessboard->alterAnywhere();
+		}
+	}
 }
 
 void ChessboardController::tryEat(CCObject* o){
-    
+	string ss=chessboard->getState();
+	bool aa=chessboard->checkMessage(BEGIN_EAT_MSG);
     Move move(chessboard->getCurrentMove());
     if(chessboard->checkMessage(BEGIN_EAT_MSG)){
         if (chessboard->checkEat(move)){
@@ -146,16 +168,30 @@ void ChessboardController::tryEat(CCObject* o){
     }
 }
 
-void ChessboardController::tryWin(CCObject* o){
-    if (chessboard->checkMessage(WIN_MSG)) {
+void ChessboardController::tryWin(CCObject* o){	
+   if (chessboard->checkMessage(WIN_MSG)) {//win_msg
         if (chessboard->checkWin(chessboard->getCurrentMove())){
             chessboard->alterWin();
             this->addChild(RotFlowerParticle::create());
+			const char* str;
+			if(chessboard->getCurrentMove().currentRound==BLACK)
+				str="Black_Win!";
+			if(chessboard->getCurrentMove().currentRound==WHITE)
+				str="WhiteWin!";
+			modeLabel->setString(str);
         }else{
             chessboard->alterNextRound();
         }
-    }
+   }
 }
+
+//void ChessboardController::tryWin2(CCObject* o){
+//	   if (chessboard->checkMessage(NO_WHERE_MSG))
+//	   {
+//		   chessboard->alterWin();
+//		   this->addChild(RotFlowerParticle::create());
+//	   }	
+//}
 
 void ChessboardController::tryRegret(cocos2d::CCObject *o){
     if (chessboard->checkMessage(REGRET_MSG)){

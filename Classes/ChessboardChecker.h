@@ -17,6 +17,8 @@ PIECE getPiece(const ChessboardData& pieces, const cocos2d::CCPoint& p);
 
 PIECE oppositePiece(PIECE p);
 
+bool checkNowhereMove(const ChessboardData& pieces, const Move& move );
+
 bool checkMove( const ChessboardData& pieces, const Move& move );
 
 bool checkEat( const ChessboardData& pieces, Move& move );
