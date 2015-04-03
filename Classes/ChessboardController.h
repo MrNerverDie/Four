@@ -43,10 +43,8 @@ public:
     
     // try方法, 向Model请求进行操作
     virtual void tryMove(const CCPoint& src, const CCPoint& dest);
-	virtual void tryNowayMove(CCObject* o);
     virtual void tryEat(CCObject* o);
     virtual void tryWin(CCObject* o);
-	//virtual void tryWin2(CCObject* o);
     virtual void tryRegret(CCObject* o);
 };
 
